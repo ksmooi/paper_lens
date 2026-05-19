@@ -1,0 +1,119 @@
+# Paper Lens - Article Metadata
+# 複製這個檔案到 topics/{topic-slug}/{YYYY-MM}-{paper-slug}/meta.yaml,然後填空。
+# 規範請見 ../../AGENT_GUIDE.md。
+
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+# 文章標題,通常是「{方法簡稱}: {副標題}」格式
+title: "DPO: Direct Preference Optimization 解讀"
+
+# Topic slug,必須是 AGENT_GUIDE.md 中列舉的其中一個
+# 可選值: llm | vlm | contrastive-learning | rl | agentic-ai | rag
+# 新增 topic 時請在 PR 描述說明
+topic: llm
+
+# 論文發表年月(對應目錄名稱),格式 YYYY-MM
+# 以 arxiv v1 發表時間為準
+paper_date: "2023-05"
+
+# 文章撰寫日期,格式 YYYY-MM-DD
+article_date: "2026-05-20"
+
+
+# ============================================================
+# 種子論文(必填,僅一篇)
+# ============================================================
+seed_paper:
+  title: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+  authors: ["Rafael Rafailov", "Archit Sharma", "et al."]
+  arxiv_id: "2305.18290"
+  url: "https://arxiv.org/abs/2305.18290"
+  venue: "NeurIPS 2023"          # 選填:會議或期刊
+  published: "2023-05-29"        # 選填:arxiv v1 發表的完整日期
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "Training language models to follow instructions with human feedback"
+    authors: ["Long Ouyang", "Jeff Wu", "et al."]
+    arxiv_id: "2203.02155"
+    url: "https://arxiv.org/abs/2203.02155"
+    relation: "DPO 的前身方法 RLHF/InstructGPT,DPO 要取代的對象"
+
+  - title: "Proximal Policy Optimization Algorithms"
+    authors: ["John Schulman", "et al."]
+    arxiv_id: "1707.06347"
+    url: "https://arxiv.org/abs/1707.06347"
+    relation: "RLHF 中使用的 RL 演算法,DPO 的對比基準"
+
+  # 不超過 3 篇。如果少於 3 篇,刪掉多餘條目即可。
+
+
+# ============================================================
+# 核心知識點(建議 3~6 點)
+# ============================================================
+knowledge_points:
+  - "從 RLHF 到 DPO 的動機:為何要去掉 reward model 階段"
+  - "DPO 損失函數的推導:從 Bradley-Terry 偏好模型到 closed-form 解"
+  - "與 PPO 的對比:訓練穩定性、計算成本、超參數敏感度"
+  - "DPO 的失敗模式:reference model 偏離與 mode collapse"
+
+
+# ============================================================
+# 標籤(輔助分類與搜尋)
+# ============================================================
+tags:
+  - alignment
+  - preference-learning
+  - rlhf
+  - llm-training
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+
+# 是否由 agent 生成(true / false)
+agent_generated: true
+
+# Agent 執行批次的識別碼,方便事後追溯
+# 格式建議: {agent-name}-{YYYY-MM-DD}-{seq},例如 hermes-2026-05-20-001
+agent_run_id: "hermes-2026-05-20-001"
+
+# Agent 在本次執行中,規格未明確而自行判斷的決策摘要(可選填)
+# 詳細決策過程請寫在 PR 描述中,這裡只放關鍵幾條供索引
+agent_decisions:
+  - "選擇 InstructGPT (2203.02155) 而非原始 RLHF 論文 (1909.08593) 作為 dependency,因前者更接近現代 LLM 對齊實踐"
+  - "未納入 SLiC-HF 等同期工作,因為 dependency 上限為 3 篇,優先保留與種子論文形成清晰對照的方法"
+
+
+# ============================================================
+# 修訂紀錄(選填)
+# ============================================================
+
+# 如果文章經歷修訂,記錄版本歷史
+# 第一版可以省略這個欄位
+revisions:
+  - version: 1
+    date: "2026-05-20"
+    note: "初版"
+  # - version: 2
+  #   date: "2026-06-15"
+  #   note: "補充失敗模式章節,修正損失函數推導的符號錯誤"
+
+
+# ============================================================
+# 狀態(選填)
+# ============================================================
+
+# 文章狀態: draft | published | needs-revision
+# 預設為 published(進入 main 後)
+status: published
+
+# 是否還有待補的 TODO(true / false)
+# 如果文章中有 TODO 標記未解決,這裡應為 true
+has_todos: false
