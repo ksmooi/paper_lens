@@ -1,4 +1,2 @@
 .DS_Store
-# 暫存論文 PDF 與臨時檔案（由 Hermes Agent 管理）
 .tmp/
-
