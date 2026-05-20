@@ -1,0 +1,84 @@
+# Paper Lens - Article Metadata
+
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+# 文章標題
+title: "Batch Normalization: 加速深層網路訓練的關鍵機制"
+
+# Topic slug (新增 topic: batchnorm)
+topic: batchnorm
+
+# 論文發表年月(對應目錄名稱)
+# 以 arxiv v1 發表時間為準: 2015-02
+paper_date: "2015-02"
+
+# 文章撰寫日期
+article_date: "2026-05-20"
+
+
+# ============================================================
+# 種子論文(必填,僅一篇)
+# ============================================================
+seed_paper:
+  title: "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift"
+  authors: ["Sergey Ioffe", "Christian Szegedy"]
+  arxiv_id: "1502.03167"
+  url: "https://arxiv.org/abs/1502.03167"
+  venue: "ICML 2015"
+  published: "2015-02-11"
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "Going Deeper with Convolutions"
+    authors: ["Christian Szegedy", "Wei Liu", "Yangqing Jia", "et al."]
+    arxiv_id: "1409.4842"
+    url: "https://arxiv.org/abs/1409.4842"
+    relation: "BN 測試的 baseline 架構 Inception/GoogLeNet，代表 BN 出現前的 SOTA 架構設計"
+
+
+# ============================================================
+# 核心知識點(建議 3~6 點)
+# ============================================================
+knowledge_points:
+  - "Internal Covariate Shift: 訓練過程中層間輸入分布不斷變化的現象"
+  - "Mini-Batch 標準化 (BN Transform): 用 mini-batch 統計量做可微分的標準化"
+  - "學習式 Scale 與 Shift (γ, β): 標準化後恢復網路表達能力"
+  - "BN 的反向傳播: 梯度流經 normalization 參數的 chain rule"
+  - "訓練 vs. 推理雙模式: mini-batch 統計量 vs. population 統計量"
+  - "BN 的連鎖效應: 更高 learning rate、Dropout 可移除、sigmoid 可用"
+
+
+# ============================================================
+# 標籤(輔助分類與搜尋)
+# ============================================================
+tags:
+  - normalization
+  - batch-normalization
+  - deep-learning
+  - training-acceleration
+  - internal-covariate-shift
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+agent_generated: true
+agent_run_id: "hermes-2026-05-20-001"
+
+agent_decisions:
+  - "新建 topic 'batchnorm' — Batch Normalization 不屬於任何既有 topic (llm/vlm/contrastive-learning/rl/agentic-ai/rag)，依 AGENT_GUIDE 規則新建目錄"
+  - "選擇 Inception (1409.4842) 作為唯一 dependency — BN 論文以此為 baseline 測試，來自同一團隊，最能幫助讀者理解 BN 的應用場景"
+  - "nano-pdf 不可用 (未安裝)，降級為純 pypdf + agent 自行語意理解，依任務 prompt 的 fallback 規則處理"
+  - "Branch 命名、commit message、PR title 以任務 prompt 為準，覆寫 AGENT_GUIDE 的對應格式"
+
+
+# ============================================================
+# 狀態(選填)
+# ============================================================
+status: published
+has_todos: false
