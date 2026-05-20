@@ -1,0 +1,83 @@
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+title: "RMSNorm: Root Mean Square Layer Normalization 論文導讀"
+topic: llm
+paper_date: "2019-10"
+article_date: "2026-05-20"
+
+
+# ============================================================
+# 種子論文(必填,僅一篇)
+# ============================================================
+seed_paper:
+  title: "Root Mean Square Layer Normalization"
+  authors: ["Biao Zhang", "Rico Sennrich"]
+  arxiv_id: "1910.07467"
+  url: "https://arxiv.org/abs/1910.07467"
+  venue: "NeurIPS 2019"
+  published: "2019-10-16"
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "Layer Normalization"
+    authors: ["Jimmy Lei Ba", "Jamie Ryan Kiros", "Geoffrey E. Hinton"]
+    arxiv_id: "1607.06450"
+    url: "https://arxiv.org/abs/1607.06450"
+    relation: "RMSNorm 的直接前身與對比基準,RMSNorm 在此基礎上移除均值歸一化"
+
+
+# ============================================================
+# 核心知識點(建議 3~6 點)
+# ============================================================
+knowledge_points:
+  - "歸一化的動機與必要性:深度網路為何需要歸一化"
+  - "Layer Normalization 的運作原理:均值與變異數的雙重標準化"
+  - "Re-centering 是否多餘?:RMSNorm 的核心假設與理論依據"
+  - "RMSNorm 的數學定義:從 LayerNorm 到 RMSNorm 的簡化"
+  - "不變性分析比較:各歸一化方法的 invariance properties"
+  - "梯度分析與隱式學習率調節:RMSNorm 如何影響梯度動力學"
+  - "pRMSNorm:部分 RMS 估計,極致計算量節省"
+  - "實證結果:跨任務、跨架構的效能與速度權衡"
+
+
+# ============================================================
+# 標籤(輔助分類與搜尋)
+# ============================================================
+tags:
+  - normalization
+  - layer-norm
+  - llm-architecture
+  - training-efficiency
+  - transformer
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+agent_generated: true
+agent_run_id: "hermes-2026-05-20-001"
+agent_decisions:
+  - "選擇 Layer Normalization (1607.06450) 作為唯一 dependency paper,因 RMSNorm 直接繼承並簡化 LayerNorm,所有實驗均以 LayerNorm 為對比基準"
+  - "Topic 歸類為 llm,因 RMSNorm 廣泛用於 LLM 架構(如 LLaMA),且 AGENT_GUIDE 中 llm 涵蓋「大型語言模型:架構」"
+  - "Branch 命名使用任務 prompt 規格(add-rmsnorm-20260520)覆寫 AGENT_GUIDE 規範(agent/llm/rmsnorm),因為任務 prompt 優先"
+
+
+# ============================================================
+# 修訂紀錄(選填)
+# ============================================================
+revisions:
+  - version: 1
+    date: "2026-05-20"
+    note: "初版"
+
+
+# ============================================================
+# 狀態(選填)
+# ============================================================
+status: published
+has_todos: false
