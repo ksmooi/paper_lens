@@ -1,0 +1,80 @@
+# Paper Lens - Article Metadata
+
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+# 文章標題
+title: "DETR: End-to-End Object Detection with Transformers 解讀"
+
+# Topic slug - vision（與 ViT、Swin、DeiT 同一主題）
+topic: vision
+
+# 論文發表年月,以 arxiv v1 發表時間為準
+paper_date: "2020-05"
+
+# 文章撰寫日期
+article_date: "2026-05-20"
+
+
+# ============================================================
+# 種子論文(必填,僅一篇)
+# ============================================================
+seed_paper:
+  title: "End-to-End Object Detection with Transformers"
+  authors: ["Nicolas Carion", "Francisco Massa", "et al."]
+  arxiv_id: "2005.12872"
+  url: "https://arxiv.org/abs/2005.12872"
+  venue: "ECCV 2020"
+  published: "2020-05-26"
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "Attention Is All You Need"
+    authors: ["Ashish Vaswani", "Noam Shazeer", "et al."]
+    arxiv_id: "1706.03762"
+    url: "https://arxiv.org/abs/1706.03762"
+    relation: "DETR 採用的 transformer encoder-decoder 架構來源"
+
+
+# ============================================================
+# 核心知識點(建議 3~6 點)
+# ============================================================
+knowledge_points:
+  - "集合預測 (Set Prediction) 框架:將偵測視為直接輸出物體集合,消除 NMS、anchor、proposal"
+  - "Transformer Encoder-Decoder 架構:CNN backbone + transformer encoder(全局 self-attention)+ decoder(cross-attention + object queries)"
+  - "Object Queries:N=100 個可學習位置編碼,每個 query 專注於特定區域與尺寸"
+  - "Bipartite Matching Loss(匈牙利匹配):預測集與真實集之間找最佳一對一匹配,消除重複預測"
+  - "Hungarian Loss:匹配後對每對計算 class CE + ℓ1 + GIoU 損失"
+  - "全景分割擴展:在 decoder 輸出加上 mask head,用 pixel-wise argmax 統一做 thing/stuff 預測"
+
+
+# ============================================================
+# 標籤(輔助分類與搜尋)
+# ============================================================
+tags:
+  - object-detection
+  - transformer
+  - end-to-end
+  - set-prediction
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+agent_generated: true
+agent_run_id: "hermes-2026-05-20-002"
+agent_decisions:
+  - "選擇 Transformer (1706.03762) 作為 dependency paper,因 DETR 的方法是直接基於 transformer encoder-decoder 設計"
+  - "nano-pdf 未安裝,降級為純 pypdf 全文閱讀 + agent 語意理解"
+  - "任務 prompt 覆寫 AGENT_GUIDE 的 branch/commit/PR 命名規則"
+
+
+# ============================================================
+# 狀態(選填)
+# ============================================================
+status: published
+has_todos: false
