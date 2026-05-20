@@ -1,0 +1,41 @@
+title: "Swin Transformer: Hierarchical Vision Transformer 解讀"
+topic: vision
+paper_date: "2021-03"
+article_date: "2026-05-20"
+seed_paper:
+  title: "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows"
+  authors: ["Ze Liu", "Yutong Lin", "Yue Cao", "et al."]
+  arxiv_id: "2103.14030"
+  url: "https://arxiv.org/abs/2103.14030"
+  venue: "ICCV 2021"
+  published: "2021-03-25"
+dependency_papers:
+  - title: "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+    authors: ["Alexey Dosovitskiy", "Lucas Beyer", "Alexander Kolesnikov", "et al."]
+    arxiv_id: "2010.11929"
+    url: "https://arxiv.org/abs/2010.11929"
+    relation: "第一個將純 Transformer 應用到圖像分類的方法，Swin Transformer 的核心比較對象與改進基礎"
+knowledge_points:
+  - "從 NLP 到 CV 的 Transformer 轉移：如何將 Transformer 從語言領域適應到視覺領域"
+  - "固定解析度 vs 層級式特徵圖：ViT 的單尺度 vs Swin 的多尺度層級結構"
+  - "二次 vs 線性計算複雜度：全局自注意力的 O(N²) vs 窗口自注意力的 O(N)"
+  - "Shifted Window 分區機制：Swin 的關鍵創新與跨視窗連接"
+  - "相對位置偏置：在視窗內使用學習到的相對位置編碼替代固定絕對位置編碼"
+  - "全任務泛化能力：Swin 在分類、偵測、分割等任務上的統一表現"
+tags:
+  - vision-transformer
+  - hierarchical
+  - object-detection
+  - semantic-segmentation
+  - self-attention
+agent_generated: true
+agent_run_id: "hermes-2026-05-20-001"
+agent_decisions:
+  - "新建 topic 'vision'（雖然已有 vi 系列文章於此 topic 下，但 AGENT_GUIDE 規範新建 topic 需說明，故此處為使用現有 topic）"
+  - "選擇 ViT (2010.11929) 而非 DeiT 作為 dependency，因 Swin Transformer 在方法層面直接對比 ViT 的全局注意力設計"
+  - "任務 prompt 的 branch 命名規則（add-{slug}-{date}）覆寫 AGENT_GUIDE 的 'agent/{topic}/{paper}' 格式"
+  - "任務 prompt 的 commit message 格式（feat: add {slug} article）覆寫 AGENT_GUIDE 的 '[topic] add: {paper} 解讀文章' 格式"
+  - "任務 prompt 的 PR 描述格式覆寫 AGENT_GUIDE 的 PR 模板格式"
+  - "使用 pdftotext 替代 pypdf 進行全文擷取，因 pdftotext 在可用時更快且排版更好"
+status: published
+has_todos: false
