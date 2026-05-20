@@ -1,0 +1,81 @@
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+# 文章標題
+title: "Vision Transformer (ViT): An Image is Worth 16x16 Words 解讀"
+
+# Topic slug（新建 topic: vision）
+topic: vision
+
+# 論文發表年月（以 arxiv v1 為準）
+paper_date: "2020-10"
+
+# 文章撰寫日期
+article_date: "2026-05-20"
+
+
+# ============================================================
+# 種子論文(必填，僅一篇)
+# ============================================================
+seed_paper:
+  title: "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+  authors: ["Alexey Dosovitskiy", "Lucas Beyer", "Alexander Kolesnikov", "et al."]
+  arxiv_id: "2010.11929"
+  url: "https://arxiv.org/abs/2010.11929"
+  venue: "ICLR 2021"
+  published: "2020-10-22"
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "Attention Is All You Need"
+    authors: ["Ashish Vaswani", "Noam Shazeer", "Niki Parmar", "et al."]
+    arxiv_id: "1706.03762"
+    url: "https://arxiv.org/abs/1706.03762"
+    relation: "ViT 的架構基石，ViT 直接沿用其 Transformer encoder 設計"
+
+
+# ============================================================
+# 核心知識點
+# ============================================================
+knowledge_points:
+  - "Transformer 編碼器架構——Scaled dot-product attention、multi-head attention、position-wise FFN 如何被 ViT 直接沿用"
+  - "影像分塊與 Patch Embedding——如何將 2D 影像轉換為 Transformer 可處理的 1D token 序列"
+  - "位置編碼的設計選擇——Transformer 的 sinusoidal PE 與 ViT 的可學習 1D PE 的差異"
+  - "歸納偏差之爭——ViT 極簡歸納偏差 vs CNN 強烈架構先驗，資料規模如何改變平衡"
+  - "預訓練-微調範例與 Scaling Behavior——小資料集輸、大資料集贏的關鍵發現"
+  - "模型變體與計算效率——ViT-B/L/H、patch size 對計算量與效能的影響"
+
+
+# ============================================================
+# 標籤
+# ============================================================
+tags:
+  - vision
+  - transformer
+  - image-classification
+  - vit
+  - computer-vision
+  - scaling
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+
+agent_generated: true
+agent_run_id: "hermes-2026-05-20-001"
+agent_decisions:
+  - "新建 vision topic 目錄，因 ViT 屬於純視覺架構論文，不屬於現有的 vlm（視覺-語言）或 contrastive-learning（對比學習）topic"
+  - "選擇原始 Transformer 論文（1706.03762）為唯一 dependency，因為 ViT 本身即為 Transformer 的直接應用，理解 Transformer 是理解 ViT 的前提"
+  - "未選擇 Cordonnier et al. (2020) 等雖與 ViT 方法接近但影響力遠不及 Transformer 的論文"
+
+
+# ============================================================
+# 狀態
+# ============================================================
+status: published
+has_todos: false
