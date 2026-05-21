@@ -1,0 +1,27 @@
+title: "Stand-Alone Self-Attention (SASA) 論文導讀"
+topic: vision
+paper_date: 2019-06
+article_date: 2026-05-21
+seed_paper:
+  title: "Stand-Alone Self-Attention in Vision Models"
+  arxiv_id: "1906.05909"
+  url: "https://arxiv.org/abs/1906.05909"
+dependency_papers:
+  - title: "Non-local Neural Networks"
+    arxiv_id: "1711.07971"
+    url: "https://arxiv.org/abs/1711.07971"
+    relation: "SASA 的前身——用 non-local/self-attention 強化卷積的開創性工作"
+knowledge_points:
+  - "卷積的長程依賴困境：參數量隨 kernel size 平方增長"
+  - "Non-local Neural Networks：全對全注意力作為卷積的強化模組"
+  - "局部自注意力：在局部窗口內計算注意力，取代全域計算"
+  - "2D 相對位置編碼：提供 translation equivariance 的關鍵元件"
+  - "架構轉換策略：將 ResNet 中的 3x3 卷積替換為自注意力"
+  - "Stem 設計：早期層的特殊處理（卷積 vs 注意力）"
+  - "空間範圍消融：從 k=3 到 k=11 的影響"
+  - "層級差異：注意力在後期層最有效，卷積在早期層不可取代"
+  - "計算效率 vs 實際速度的落差"
+  - "對 ViT 和 Swin Transformer 的啟發"
+tags: [vision, self-attention, transformer, architecture, resnet]
+agent_generated: true
+agent_run_id: "hermes-2026-05-21-001"
