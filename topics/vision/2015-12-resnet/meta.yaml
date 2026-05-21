@@ -1,0 +1,86 @@
+# Paper Lens - Article Metadata
+
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+title: "ResNet (Deep Residual Learning): 論文導讀"
+
+# Topic slug
+# ResNet 是電腦視覺領域的基礎架構論文
+topic: vision
+
+# 論文發表年月(對應目錄名稱),格式 YYYY-MM
+# 以 arxiv v1 發表時間為準
+paper_date: "2015-12"
+
+# 文章撰寫日期,格式 YYYY-MM-DD
+article_date: "2026-05-21"
+
+
+# ============================================================
+# 種子論文(必填,僅一篇)
+# ============================================================
+seed_paper:
+  title: "Deep Residual Learning for Image Recognition"
+  authors: ["Kaiming He", "Xiangyu Zhang", "Shaoqing Ren", "Jian Sun"]
+  arxiv_id: "1512.03385"
+  url: "https://arxiv.org/abs/1512.03385"
+  venue: "CVPR 2016"
+  published: "2015-12-10"
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "Very Deep Convolutional Networks for Large-Scale Image Recognition"
+    authors: ["Karen Simonyan", "Andrew Zisserman"]
+    arxiv_id: "1409.1556"
+    url: "https://arxiv.org/abs/1409.1556"
+    relation: "VGG 證明了深度對準確率的價值，也暴露了 plain stacking 的天花板。ResNet 繼承了 VGG 的 3×3 conv 堆疊範式並解決其瓶頸。"
+
+
+# ============================================================
+# 核心知識點(5 點)
+# ============================================================
+knowledge_points:
+  - "Degradation Problem——為什麼深度增加反而會惡化優化？"
+  - "殘差學習公式——為什麼 F(x) = H(x) − x 比直接學習 H(x) 容易？"
+  - "Identity Shortcut Connection——identity mapping 為何足夠？與 Highway Network 的 gating 有何不同？"
+  - "Bottleneck Design——1×1→3×3→1×1 的設計如何讓 152 層的計算量低於 VGG-19？"
+  - "VGG 的貢獻與限制——VGG 為 ResNet 奠定了哪些基礎，哪些成了瓶頸？"
+
+
+# ============================================================
+# 標籤(輔助分類與搜尋)
+# ============================================================
+tags:
+  - vision
+  - image-classification
+  - residual-learning
+  - deep-learning
+  - cnn
+  - ilsvrc
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+
+agent_generated: true
+
+agent_run_id: "hermes-2026-05-21-001"
+
+agent_decisions:
+  - "選擇 VGG (1409.1556) 而非 Batch Normalization (1502.03167) 作為 dependency paper，因 VGG 直接證明了深度的價值並暴露 degradation problem"
+  - "Topic 歸類為 vision（非 AGENT_GUIDE topic 表中的既有選項），但 repo 已有 topics/vision/ 目錄及其文章，維持一致"
+
+
+# ============================================================
+# 狀態
+# ============================================================
+
+status: published
+
+has_todos: false
