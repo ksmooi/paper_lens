@@ -2,7 +2,7 @@
 
 用一篇文章的長度,把一篇 AI 論文講清楚。
 
-這是我的個人 AI 論文閱讀筆記庫,涵蓋 LLM、VLM、對比學習、強化學習、Agentic AI、RAG 等領域。每篇文章圍繞一篇**種子論文**展開,並串接最相關的 dependency papers,試圖把該主題的**核心知識點**講透。
+這是我的個人 AI 論文閱讀筆記庫,涵蓋 LLM、VLM、Attention、擴散模型、正規化、PEFT、Agentic AI、RAG 等領域。每篇文章圍繞一篇**種子論文**展開,並串接最相關的 dependency papers,試圖把該主題的**核心知識點**講透。
 
 文章以繁體中文撰寫,主要是寫給未來的自己看,但歡迎任何路過的人閱讀、討論、糾錯。
 
@@ -27,12 +27,20 @@
 ```
 paper-lens/
 ├── topics/                    # 文章主體,依主題分類
-│   ├── llm/
-│   ├── vlm/
-│   ├── contrastive-learning/
-│   ├── rl/
-│   ├── agentic-ai/
-│   └── rag/
+│   ├── llm/                   # 大型語言模型架構與預訓練
+│   ├── normalization/         # 正規化方法(BN、LN、RMSNorm 等)
+│   ├── vision/                # 電腦視覺模型(ResNet、ViT、DETR 等)
+│   ├── vlm/                   # 視覺語言多模態模型
+│   ├── attention/             # Attention 機制與位置編碼
+│   ├── diffusion/             # 擴散模型(DDPM、LDM、DiT 等)
+│   ├── efficiency/            # 推理效率、量化、剪枝、分散式訓練
+│   ├── embedding/             # 嵌入與表示學習
+│   ├── moe/                   # Mixture of Experts
+│   ├── optimization/          # 優化器與訓練策略
+│   ├── peft/                  # 參數高效微調與指令微調
+│   ├── rag/                   # 檢索增強生成
+│   ├── rl/                    # 強化學習與對齊(RLHF、DPO 等)
+│   └── agentic/               # LLM Agent、工具使用、Multi-Agent、Harness
 ├── _templates/                # 文章與 metadata 範本
 ├── _index/                    # 自動生成的索引(依日期/主題/論文)
 ├── scripts/                   # 索引生成、文章驗證腳本
@@ -59,12 +67,20 @@ topics/llm/2023-05-dpo/
 
 | 主題 | 說明 |
 |------|------|
-| [LLM](./topics/llm/) | 大型語言模型:架構、訓練、對齊 |
-| [VLM](./topics/vlm/) | 視覺-語言模型:多模態理解與生成 |
-| [Contrastive Learning](./topics/contrastive-learning/) | 對比學習:自監督表徵學習方法 |
-| [RL](./topics/rl/) | 強化學習:policy gradient、value-based 等 |
-| [Agentic AI](./topics/agentic-ai/) | Agent 系統:規劃、工具使用、多 agent |
-| [RAG](./topics/rag/) | 檢索增強生成:retrieval 與 generation 的結合 |
+| [LLM](./topics/llm/) | 大型語言模型:架構、預訓練、Scaling Law |
+| [Normalization](./topics/normalization/) | 正規化方法:BatchNorm、LayerNorm、RMSNorm |
+| [Vision](./topics/vision/) | 電腦視覺:骨幹網路、物件偵測、分割、自監督 |
+| [VLM](./topics/vlm/) | 視覺語言模型:多模態理解與生成 |
+| [Attention](./topics/attention/) | Attention 機制:效率化、位置編碼、KV Cache |
+| [Diffusion](./topics/diffusion/) | 擴散模型:DDPM、LDM、DiT、流匹配 |
+| [Efficiency](./topics/efficiency/) | 推理效率:量化、剪枝、蒸餾、分散式訓練 |
+| [Embedding](./topics/embedding/) | 嵌入與表示學習:詞向量、句向量、對比學習 |
+| [MoE](./topics/moe/) | Mixture of Experts:路由機制、負載均衡 |
+| [Optimization](./topics/optimization/) | 優化器與訓練策略:Adam、混合精度 |
+| [PEFT](./topics/peft/) | 參數高效微調:LoRA、QLoRA、Adapter、指令微調 |
+| [RAG](./topics/rag/) | 檢索增強生成:稠密檢索、自適應 RAG |
+| [RL](./topics/rl/) | 強化學習與對齊:PPO、RLHF、DPO、推理強化 |
+| [Agentic](./topics/agentic/) | LLM Agent:規劃、工具使用、Multi-Agent、Harness |
 
 新主題會隨閱讀範圍擴張而新增。
 
@@ -78,7 +94,7 @@ topics/llm/2023-05-dpo/
 2. **Dependency papers 蒐集**——從引用網路中挑出最相關的至多 3 篇
 3. **知識點歸納**——從種子論文中抽取該主題的核心知識點
 4. **逐篇精讀**——依知識點清單,擷取每篇論文的原理、方法、實驗結果
-5. **文章撰寫**——整合成一篇繁體中文文章,涵蓋每篇論文在各知識點上的貢獻
+5. **文章撰寫**——整合成一篇繁體中文文章(700–1000 行),涵蓋每篇論文在各知識點上的貢獻
 6. **發布到 GitHub**——建立新 branch、開 PR、不直接 push 到 main
 
 Agent 在執行過程中遇到模糊情境時會自行判斷並繼續,判斷依據會記錄在 PR 描述中以便事後審閱。詳細規則見 [`AGENT_GUIDE.md`](./AGENT_GUIDE.md)。
