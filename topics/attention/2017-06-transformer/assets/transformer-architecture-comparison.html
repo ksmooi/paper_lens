@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Transformer Architecture — Bahdanau vs Transformer Comparison</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #020617; color: #e2e8f0; font-family: 'JetBrains Mono', monospace; display: flex; justify-content: center; padding: 40px; }
+  .container { max-width: 1200px; width: 100%; }
+  h1 { font-size: 24px; margin-bottom: 8px; color: #f1f5f9; }
+  .subtitle { font-size: 12px; color: #64748b; margin-bottom: 32px; }
+  .diagram-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 32px; margin-bottom: 24px; }
+  .grid { display: flex; gap: 24px; justify-content: center; }
+  .col { flex: 1; max-width: 500px; }
+  .col-title { text-align: center; font-size: 14px; font-weight: 600; margin-bottom: 16px; padding: 8px; border-radius: 4px; }
+  .col-title.left { background: rgba(8, 51, 68, 0.4); color: #22d3ee; border: 1px solid #22d3ee33; }
+  .col-title.right { background: rgba(6, 78, 59, 0.4); color: #34d399; border: 1px solid #34d39933; }
+  .arrow-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 8px 0; }
+  .arrow-down { width: 2px; height: 24px; background: #475569; }
+  .box { border: 1.5px solid; border-radius: 6px; padding: 12px 16px; margin: 6px 0; font-size: 11px; line-height: 1.5; position: relative; }
+  .box.left-box { border-color: #22d3ee; background: rgba(8, 51, 68, 0.3); }
+  .box.right-box { border-color: #34d399; background: rgba(6, 78, 59, 0.3); }
+  .box.highlight { border-color: #fbbf24; background: rgba(120, 53, 15, 0.2); }
+  .box-label { font-size: 8px; color: #64748b; margin-top: 4px; }
+  .tag { display: inline-block; font-size: 8px; padding: 2px 6px; border-radius: 3px; margin-right: 4px; }
+  .tag.cyan { background: #22d3ee22; color: #22d3ee; }
+  .tag.emerald { background: #34d39922; color: #34d399; }
+  .tag.amber { background: #fbbf2422; color: #fbbf24; }
+  .legend { display: flex; gap: 24px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 10px; color: #94a3b8; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .info-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 16px; }
+  .info-card h3 { font-size: 12px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .info-card ul { list-style: none; }
+  .info-card li { font-size: 10px; color: #94a3b8; margin: 4px 0; padding-left: 12px; position: relative; }
+  .info-card li::before { content: '▸'; position: absolute; left: 0; color: #475569; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+  .dot.cyan { background: #22d3ee; }
+  .dot.emerald { background: #34d399; }
+  .dot.amber { background: #fbbf24; }
+  .footer { text-align: center; font-size: 9px; color: #475569; margin-top: 24px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Bahdanau (2015) vs Transformer (2017)</h1>
+  <div class="subtitle">從 RNN + Attention 到純 Attention 架構的演進</div>
+  
+  <div class="diagram-card">
+    <div class="grid">
+      <!-- Bahdanau -->
+      <div class="col">
+        <div class="col-title left">Bahdanau et al. (2015) — RNNsearch</div>
+        
+        <div class="box left-box">
+          <strong>Input Embedding</strong>
+          <div class="box-label">x₁, x₂, ..., x_T</div>
+        </div>
+        <div class="arrow-row"><div class="arrow-down"></div></div>
+        
+        <div class="box left-box" style="background: rgba(8, 51, 68, 0.5);">
+          <strong>BiRNN Encoder</strong>
+          <div class="box-label">GRU 正向 + 反向 → h₁...h_T annotation</div>
+        </div>
+        <div class="arrow-row"><div class="arrow-down"></div></div>
+        
+        <div class="box left-box highlight" style="border: 1.5px dashed #fbbf24;">
+          <strong>Alignment Model</strong>
+          <div class="box-label">eᵢⱼ = vₐᵀ tanh(Wₐsᵢ₋₁ + Uₐhⱼ)</div>
+          <span class="tag amber">ADDITIVE ATTENTION</span>
+        </div>
+        <div class="arrow-row"><div class="arrow-down"></div></div>
+        
+        <div class="box left-box" style="background: rgba(8, 51, 68, 0.5);">
+          <strong>GRU Decoder</strong>
+          <div class="box-label">sᵢ = f(sᵢ₋₁, yᵢ₋₁, cᵢ) &nbsp; cᵢ = Σαᵢⱼhⱼ</div>
+        </div>
+        <div class="arrow-row"><div class="arrow-down"></div></div>
+        
+        <div class="box left-box">
+          <strong>Output Softmax</strong>
+          <div class="box-label">p(yᵢ | y&lt;i, x) via maxout</div>
+        </div>
+        
+        <div style="margin-top: 12px; font-size: 10px; color: #64748b;">
+          <span class="tag cyan">Sequential ops: O(n)</span>
+          <span class="tag cyan">Path length: O(n)</span>
+        </div>
+      </div>
+      
+      <!-- Transformer -->
+      <div class="col">
+        <div class="col-title right">Transformer (Vaswani et al., 2017)</div>
+        
+        <div class="box right-box">
+          <strong>Input + Positional Encoding</strong>
+          <div class="box-label">PE(pos,2i) = sin(pos/10000^(2i/d))</div>
+        </div>
+        <div class="arrow-row"><div class="arrow-down"></div></div>
+        
+        <div class="box right-box" style="background: rgba(6, 78, 59, 0.5);">
+          <strong>Encoder × N=6</strong>
+          <div class="box-label">Multi-Head Self-Attention → Add&Norm → FFN → Add&Norm</div>
+        </div>
+        <div class="arrow-row"><div class="arrow-down"></div></div>
+        
+        <div class="box right-box highlight" style="border: 1.5px dashed #fbbf24;">
+          <strong>Scaled Dot-Product Attention</strong>
+          <div class="box-label">Attention(Q,K,V) = softmax(QKᵀ/√dₖ)V</div>
+          <span class="tag amber">MULTI-HEAD (h=8)</span>
+        </div>
+        <div class="arrow-row"><div class="arrow-down"></div></div>
+        
+        <div class="box right-box" style="background: rgba(6, 78, 59, 0.5);">
+          <strong>Decoder × N=6</strong>
+          <div class="box-label">Masked Self-Attn → Cross-Attn → FFN</div>
+        </div>
+        <div class="arrow-row"><div class="arrow-down"></div></div>
+        
+        <div class="box right-box">
+          <strong>Linear + Softmax</strong>
+          <div class="box-label">p(yᵢ | y&lt;i, x) via weight-tying</div>
+        </div>
+        
+        <div style="margin-top: 12px; font-size: 10px; color: #64748b;">
+          <span class="tag emerald">Sequential ops: O(1)</span>
+          <span class="tag emerald">Path length: O(1)</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="border-color: #22d3ee;"></div> Bahdanau (RNN-based)</div>
+      <div class="legend-item"><div class="legend-dot" style="border-color: #34d399;"></div> Transformer (Attention-only)</div>
+      <div class="legend-item"><div class="legend-dot" style="border-color: #fbbf24;"></div> Attention Mechanism</div>
+    </div>
+  </div>
+  
+  <div class="info-grid">
+    <div class="info-card">
+      <h3><span class="dot cyan"></span> Bahdanau (2015)</h3>
+      <ul>
+        <li>BLEU En→Fr: 26.75 (RNNsearch-50)</li>
+        <li>Training: ~5 days, single GPU</li>
+        <li>Encoder: BiRNN (GRU, 1000 units)</li>
+        <li>Decoder: RNN + attention</li>
+        <li>Attention: Additive (concat)</li>
+        <li>Parallelization: Limited by RNN</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3><span class="dot emerald"></span> Transformer (2017)</h3>
+      <ul>
+        <li>BLEU En→De: 28.4 (big) / En→Fr: 41.8</li>
+        <li>Training: 3.5 days, 8× P100 GPUs</li>
+        <li>Encoder/Decoder: Self-Attn + FFN ×6</li>
+        <li>Attention: Scaled Dot-Product</li>
+        <li>Multi-Head: h=8, d_k=64 each</li>
+        <li>Parallelization: Fully parallelizable</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3><span class="dot amber"></span> 關鍵創新</h3>
+      <ul>
+        <li>No RNN — pure attention mechanism</li>
+        <li>O(1) sequential operations vs O(n)</li>
+        <li>Multi-Head: different subspaces</li>
+        <li>Sinusoidal positional encoding</li>
+        <li>23× cheaper than ConvS2S Ensemble</li>
+        <li>Foundation for GPT, BERT, ViT, etc.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer">
+    Paper Lens — Hermes Agent Generated &bull; 2026-05-21
+  </div>
+</div>
+</body>
+</html>
