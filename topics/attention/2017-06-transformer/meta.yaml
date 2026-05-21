@@ -1,0 +1,27 @@
+title: "Transformer: Attention Is All You Need 解讀"
+topic: attention
+paper_date: 2017-06
+article_date: 2026-05-21
+seed_paper:
+  title: "Attention Is All You Need"
+  arxiv_id: "1706.03762"
+  url: "https://arxiv.org/abs/1706.03762"
+dependency_papers:
+  - title: "Neural Machine Translation by Jointly Learning to Align and Translate"
+    arxiv_id: "1409.0473"
+    url: "https://arxiv.org/abs/1409.0473"
+    relation: "首次將注意力機制引入 NMT，為 Transformer 完全基於 attention 的架構提供理論先驅與實證基礎"
+knowledge_points:
+  - "RNN 在 Seq2Seq 中的根本限制：循序計算無法平行化、固定長度向量瓶頸"
+  - "Bahdanau 的加法注意力（Additive Attention）：以對齊模型計算 soft alignment"
+  - "Scaled Dot-Product Attention：核心注意力計算與縮放因子 √d_k 的設計原理"
+  - "Multi-Head Attention：多頭投影在不同子空間並行捕捉特徵"
+  - "Transformer 整體架構：Encoder-Decoder 各 N=6 層的設計"
+  - "Position-wise FFN：每個位置獨立應用的非線性變換"
+  - "Positional Encoding：正弦餘弦位置編碼注入序列順序資訊"
+  - "Self-Attention 相較 RNN/CNN 的複雜度分析 (O(n²·d) vs O(n·d²))"
+  - "訓練細節：Adam 優化器、學習率排程、正則化與消融實驗"
+  - "Transformer 的原始限制：O(n²)計算成本、有限任務驗證、深層不穩定性"
+tags: [attention, transformer, seq2seq, machine-translation, self-attention]
+agent_generated: true
+agent_run_id: "hermes-2026-05-21-transformer"
