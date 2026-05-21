@@ -34,9 +34,9 @@ $$
 
 其中每個條件概率由一個 RNN 隱藏狀態 $s_t$ 定義：
 
-$$
-p(y_t | y_{<t}, c) = g(y_{t-1}, s_t, c)
-$$
+```math
+p(y_t \mid y_{1:t-1}, c) = g(y_{t-1}, s_t, c)
+```
 
 然而 RNN 有一個根本問題：**循序計算**。為了處理序列中第 $t$ 個位置，RNN 必須先完成前 $t-1$ 個位置的計算——這讓訓練無法在單一範例內平行化。當序列長度增加時，這個限制會使訓練時間急劇上升。雖然 LSTM 和 GRU 透過閘控機制緩解了長距離梯度消失問題，但它們仍然無法跳脫循序計算的框架。
 
@@ -361,9 +361,13 @@ Transformer 完全摒棄了遞迴和卷積，卻也因此失去了對序列順�
 
 為了解決這個問題，論文在編碼器和解碼器底部的輸入嵌入上**加上**位置編碼（positional encoding）。位置編碼的維度與嵌入維度相同（$d_{\text{model}} = 512$），可以直接相加：
 
-$$
-\text{input} = \text{token\_embedding} + \text{positional\_encoding}
-$$
+```math
+\mathbf{x}_{pos}
+=
+\mathrm{Embedding}(x_{pos})
++
+PE(pos)
+```
 
 論文使用正弦和餘弦函數在不同頻率上生成位置編碼：
 
@@ -435,9 +439,16 @@ $$
 
 **學習率排程**：採用別具特色的 warmup + inverse square root decay 策略：
 
-$$
-\text{lrate} = d_{\text{model}}^{-0.5} \cdot \min(\text{step}^{-0.5}, \text{step} \cdot \text{warmup\_steps}^{-1.5})
-$$
+```math
+\mathrm{lrate}
+=
+d_{\mathrm{model}}^{-1/2}
+\cdot
+\min\left(
+\mathrm{step}^{-1/2},
+\mathrm{step} \cdot \mathrm{warmup\_steps}^{-3/2}
+\right)
+```
 
 前 $warmup\_steps = 4000$ 步線性增加學習率，之後按步數的平方根倒數衰減。這種先升後降的設計讓模型在訓練初期能穩定地探索參數空間，後期則精細調校。
 
@@ -446,7 +457,7 @@ $$
 - **Embedding + positional encoding dropout**：同樣 $P_{drop} = 0.1$
 - **Label smoothing**：$\epsilon_{ls} = 0.1$。雖然讓 perplexity 變差（模型學得不那麼確定），但提升了 BLEU 分數。論文中解釋這是因為 label smoothing 讓模型對輸出分布更均勻，從而改善了 beam search 時的泛化能力。
 
-**學習率排程的詳細分析**：論文的學習率公式 $\text{lrate} = d_{\text{model}}^{-0.5} \cdot \min(\text{step}^{-0.5}, \text{step} \cdot \text{warmup\_steps}^{-1.5})$ 可以分成兩個階段理解：
+**學習率排程的詳細分析**：論文的學習率公式 $`\mathrm{lrate} = d_{\mathrm{model}}^{-1/2} \cdot \min\left(\mathrm{step}^{-1/2}, \mathrm{step} \cdot \mathrm{warmup\_steps}^{-3/2}\right)`$ 可以分成兩個階段理解：
 
 在前 4000 步（warmup 階段），$\text{step} \cdot \text{warmup\_steps}^{-1.5} < \text{step}^{-0.5}$，min 取前者，此時學習率與 step 呈線性成長：
 
