@@ -1,0 +1,96 @@
+# Paper Lens - Article Metadata
+
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+# 文章標題
+title: "SimPO: Simple Preference Optimization with a Reference-Free Reward 解讀"
+
+# Topic slug
+topic: rl
+
+# 論文發表年月(對應目錄名稱),格式 YYYY-MM
+paper_date: "2024-05"
+
+# 文章撰寫日期,格式 YYYY-MM-DD
+article_date: "2026-05-21"
+
+
+# ============================================================
+# 種子論文(必填,僅一篇)
+# ============================================================
+seed_paper:
+  title: "SimPO: Simple Preference Optimization with a Reference-Free Reward"
+  authors: ["Yu Meng", "Mengzhou Xia", "Danqi Chen"]
+  arxiv_id: "2405.14734"
+  url: "https://arxiv.org/abs/2405.14734"
+  venue: "NeurIPS 2024"
+  published: "2024-05-23"
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+    authors: ["Rafael Rafailov", "Archit Sharma", "et al."]
+    arxiv_id: "2305.18290"
+    url: "https://arxiv.org/abs/2305.18290"
+    relation: "SimPO 所改進的基礎方法。DPO 將 RLHF 的 reward model 參數化吸收進 policy 損失函數，SimPO 進一步去掉 reference model 並使用 length-normalized reward。"
+
+
+# ============================================================
+# 核心知識點(建議 3~6 點)
+# ============================================================
+knowledge_points:
+  - "Reward Formulation 的設計空間：reference-based vs reference-free、length-normalized vs non-normalized"
+  - "訓練-生成指標不一致問題：DPO 的 reward 與 average log-likelihood 之間的 gap"
+  - "Length-Normalized Reward：用 average log probability 消除長度偏誤"
+  - "Target Reward Margin：γ 在 Bradley-Terry 模型中的作用與影響"
+  - "Reference-Free 設計的 trade-off：計算效率與 catastrophic forgetting 的權衡"
+  - "SimPO vs DPO 梯度分析：從梯度視角理解兩者的根本差異"
+
+
+# ============================================================
+# 標籤(輔助分類與搜尋)
+# ============================================================
+tags:
+  - alignment
+  - preference-learning
+  - rlhf
+  - dpo
+  - simpo
+  - reference-free
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+
+agent_generated: true
+
+agent_run_id: "hermes-2026-05-21-001"
+
+agent_decisions:
+  - "選擇 DPO (2305.18290) 作為唯一 dependency paper，因為 SimPO 直接定位為 DPO 的改進"
+  - "Topic 分類為 rl，因 AGENT_GUIDE 明確將 RLHF/DPO/偏好優化歸入 rl"
+  - "Paper slug 使用 simpo（community 慣用方法名簡稱）"
+
+
+# ============================================================
+# 修訂紀錄(選填)
+# ============================================================
+
+revisions:
+  - version: 1
+    date: "2026-05-21"
+    note: "初版"
+
+
+# ============================================================
+# 狀態(選填)
+# ============================================================
+
+status: published
+has_todos: false

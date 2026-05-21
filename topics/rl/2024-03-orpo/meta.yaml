@@ -1,0 +1,39 @@
+title: "ORPO: Odds Ratio Preference Optimization 解讀"
+topic: rl
+paper_date: 2024-03
+article_date: 2026-05-21
+seed_paper:
+  title: "ORPO: Monolithic Preference Optimization without Reference Model"
+  authors: ["Jiwoo Hong", "Noah Lee", "James Thorne"]
+  arxiv_id: "2403.07691"
+  url: "https://arxiv.org/abs/2403.07691"
+dependency_papers:
+  - title: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+    authors: ["Rafael Rafailov", "Archit Sharma", "Eric Mitchell"]
+    arxiv_id: "2305.18290"
+    url: "https://arxiv.org/abs/2305.18290"
+    relation: "ORPO 的直接對比基準，DPO 從 RLHF 推導出 closed-form 偏好損失"
+knowledge_points:
+  - "SFT 在偏好對齊中的雙面性：cross-entropy loss 無法區分 chosen 與 rejected responses"
+  - "DPO 的理論基礎：從 RLHF 的 KL-constrained objective 推導出 closed-form 偏好損失"
+  - "Odds Ratio 的定義與直覺：odds(y|x) = P(y|x)/(1-P(y|x)) 的性質"
+  - "ORPO 目標函數：L_ORPO = L_SFT + λ·L_OR 的完整形式與梯度推導"
+  - "Odds Ratio vs Probability Ratio：理論比較與實證驗證"
+  - "λ 超參數的角色：控制偏好對齊強度與任務類型的 trade-off"
+tags:
+  - alignment
+  - preference-learning
+  - rlhf
+  - dpo
+  - orpo
+  - sft
+  - llm-training
+agent_generated: true
+agent_run_id: "hermes-2026-05-21-001"
+agent_decisions:
+  - "選擇 DPO (2305.18290) 而非 RLHF 作為 dependency paper，因為 ORPO 的核心貢獻建立在與 DPO 的直接對比上"
+  - "TOPIOC slug 為 orpo（論文公認縮寫），分類為 rl（偏好對齊屬於 LLM 對齊技術）"
+  - "baoyu-infographic 因缺少 image_generate 工具而降級，以文章內的文字比較表替代"
+  - "architecture-diagram 不適合數學概念圖，改用 excalidraw 製作 odds ratio 示意圖"
+status: published
+has_todos: false

@@ -1,0 +1,48 @@
+title: "DPO (Direct Preference Optimization): 語言模型本身就是獎勵模型"
+topic: rl
+paper_date: "2023-05"
+article_date: "2026-05-21"
+
+seed_paper:
+  title: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+  authors: ["Rafael Rafailov", "Archit Sharma", "Eric Mitchell", "et al."]
+  arxiv_id: "2305.18290"
+  url: "https://arxiv.org/abs/2305.18290"
+  venue: "NeurIPS 2023"
+  published: "2023-05-29"
+
+dependency_papers:
+  - title: "Training language models to follow instructions with human feedback"
+    authors: ["Long Ouyang", "Jeff Wu", "Xu Jiang", "et al."]
+    arxiv_id: "2203.02155"
+    url: "https://arxiv.org/abs/2203.02155"
+    relation: "InstructGPT 建立的標準 PPO-based RLHF 三階段流程，DPO 直接對比和簡化的對象"
+
+knowledge_points:
+  - "RLHF 的數學形式化：KL 約束的獎勵最大化目標"
+  - "從 reward function 到 optimal policy 的解析映射"
+  - "Bradley-Terry 偏好模型與 reward 等價類"
+  - "DPO 的 change-of-variables：把 reward 代回 policy，partition function 抵消"
+  - "DPO 損失函數與動態梯度加權機制"
+  - "DPO 的理論保證：Theorem 1 證明 reparameterization 不損失 generality"
+  - "DPO 與 PPO 的對比：從 actor-critic 視角理解穩定性"
+
+tags:
+  - alignment
+  - preference-learning
+  - rlhf
+  - dpo
+  - direct-preference-optimization
+
+agent_generated: true
+agent_run_id: "hermes-2026-05-21-001"
+
+agent_decisions:
+  - "選擇 InstructGPT (2203.02155) 作為唯一 dependency paper，因為 DPO 的核心貢獻就是簡化 RLHF 流程，InstructGPT 是最直接的比較基準"
+  - "Topic slug 使用「dpo」（community 慣用簡稱），與 AGENT_GUIDE 範例一致"
+  - "分類歸屬 rl（非 llm），依照 AGENT_GUIDE 跨主題判斷：RLHF/DPO 等對齊方法的核心貢獻是 RL 訓練框架"
+  - "使用 pdftotext 進行全文閱讀（pypdf 也安裝了但 pdftotext 更快），nano-pdf 暫未安裝"
+  - "使用 Mermaid 內嵌圖代替獨立 SVG/PNG 圖檔，降低資產管理複雜度"
+
+status: published
+has_todos: false

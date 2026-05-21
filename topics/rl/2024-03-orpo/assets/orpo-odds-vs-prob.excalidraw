@@ -1,0 +1,88 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "hermes-agent",
+  "elements": [
+    {
+      "type": "text", "id": "title", "x": 300, "y": 30, "width": 400, "height": 30,
+      "text": "Odds Ratio vs Probability Ratio 直覺比較",
+      "fontSize": 24, "fontFamily": 1, "strokeColor": "#1e1e1e",
+      "originalText": "Odds Ratio vs Probability Ratio 直覺比較", "autoResize": true
+    },
+    {
+      "type": "rectangle", "id": "left-box", "x": 50, "y": 90, "width": 350, "height": 220,
+      "roundness": { "type": 3 }, "backgroundColor": "#a5d8ff", "fillStyle": "solid",
+      "strokeColor": "#1e1e1e", "strokeWidth": 2,
+      "boundElements": [{ "id": "t-left", "type": "text" }]
+    },
+    {
+      "type": "text", "id": "t-left", "x": 60, "y": 100, "width": 330, "height": 25,
+      "text": "Probability Ratio: P(y_w) / P(y_l)", "fontSize": 20, "fontFamily": 1,
+      "strokeColor": "#1e1e1e", "textAlign": "center", "verticalAlign": "middle",
+      "containerId": "left-box", "originalText": "Probability Ratio: P(y_w) / P(y_l)", "autoResize": true
+    },
+    {
+      "type": "text", "id": "desc-left", "x": 70, "y": 140, "width": 310, "height": 150,
+      "text": "• 範圍：當 P small, PR ≈ P ratio\n• 分佈集中：取值範圍窄\n• 區分力度有限\n• 容易過度壓制 rejected\n• 導致生成退化（degeneration）",
+      "fontSize": 16, "fontFamily": 1, "strokeColor": "#1e1e1e",
+      "originalText": "• 範圍：當 P small, PR ≈ P ratio\n• 分佈集中：取值範圍窄\n• 區分力度有限\n• 容易過度壓制 rejected\n• 導致生成退化（degeneration）", "autoResize": true
+    },
+    {
+      "type": "rectangle", "id": "right-box", "x": 480, "y": 90, "width": 350, "height": 220,
+      "roundness": { "type": 3 }, "backgroundColor": "#b2f2bb", "fillStyle": "solid",
+      "strokeColor": "#1e1e1e", "strokeWidth": 2,
+      "boundElements": [{ "id": "t-right", "type": "text" }]
+    },
+    {
+      "type": "text", "id": "t-right", "x": 490, "y": 100, "width": 330, "height": 25,
+      "text": "Odds Ratio: (P/(1-P))_w / (P/(1-P))_l", "fontSize": 20, "fontFamily": 1,
+      "strokeColor": "#1e1e1e", "textAlign": "center", "verticalAlign": "middle",
+      "containerId": "right-box", "originalText": "Odds Ratio: (P/(1-P))_w / (P/(1-P))_l", "autoResize": true
+    },
+    {
+      "type": "text", "id": "desc-right", "x": 500, "y": 140, "width": 310, "height": 150,
+      "text": "• 範圍：不受 P 上限限制\n• 分佈寬廣：取值範圍大\n• 區分訊號強烈\n• 溫和壓制 rejected\n• 保留生成多樣性",
+      "fontSize": 16, "fontFamily": 1, "strokeColor": "#1e1e1e",
+      "originalText": "• 範圍：不受 P 上限限制\n• 分佈寬廣：取值範圍大\n• 區分訊號強烈\n• 溫和壓制 rejected\n• 保留生成多樣性", "autoResize": true
+    },
+    {
+      "type": "arrow", "id": "arrow-vs", "x": 410, "y": 200, "width": 60, "height": 0,
+      "points": [[0,0],[60,0]], "endArrowhead": "arrow", "strokeColor": "#e03131", "strokeWidth": 3,
+      "boundElements": [{ "id": "t-vs", "type": "text" }]
+    },
+    {
+      "type": "text", "id": "t-vs", "x": 415, "y": 175, "width": 50, "height": 25,
+      "text": "VS", "fontSize": 20, "fontFamily": 1, "strokeColor": "#e03131",
+      "textAlign": "center", "verticalAlign": "middle",
+      "containerId": "arrow-vs", "originalText": "VS", "autoResize": true
+    },
+    {
+      "type": "rectangle", "id": "formula-box", "x": 140, "y": 340, "width": 600, "height": 180,
+      "roundness": { "type": 3 }, "backgroundColor": "#fff3bf", "fillStyle": "solid",
+      "strokeColor": "#1e1e1e", "strokeWidth": 2,
+      "boundElements": [{ "id": "t-formula", "type": "text" }]
+    },
+    {
+      "type": "text", "id": "t-formula", "x": 150, "y": 350, "width": 580, "height": 25,
+      "text": "Odds Ratio 的關鍵性質",
+      "fontSize": 20, "fontFamily": 1, "strokeColor": "#1e1e1e",
+      "textAlign": "center", "verticalAlign": "middle",
+      "containerId": "formula-box", "originalText": "Odds Ratio 的關鍵性質", "autoResize": true
+    },
+    {
+      "type": "text", "id": "formula-content", "x": 160, "y": 390, "width": 560, "height": 120,
+      "text": "odds(y|x) = P(y|x) / (1 - P(y|x))\n\n當 P = 0.1 → odds = 0.11, 當 P = 0.5 → odds = 1.0, 當 P = 0.9 → odds = 9.0\n\nOdds 的動態範圍比 Probability 更寬廣，\n因此在 P 值小的初期訓練階段也能產生有效的對比訊號。",
+      "fontSize": 16, "fontFamily": 1, "strokeColor": "#1e1e1e",
+      "originalText": "odds(y|x) = P(y|x) / (1 - P(y|x))\n\n當 P = 0.1 → odds = 0.11, 當 P = 0.5 → odds = 1.0, 當 P = 0.9 → odds = 9.0\n\nOdds 的動態範圍比 Probability 更寬廣，\n因此在 P 值小的初期訓練階段也能產生有效的對比訊號。", "autoResize": true
+    },
+    {
+      "type": "text", "id": "footnote", "x": 250, "y": 540, "width": 380, "height": 20,
+      "text": "圖：Odds Ratio vs Probability Ratio 比較 — ORPO 論文 Figure 6 概念示意",
+      "fontSize": 14, "fontFamily": 1, "strokeColor": "#757575",
+      "originalText": "圖：Odds Ratio vs Probability Ratio 比較 — ORPO 論文 Figure 6 概念示意", "autoResize": true
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff"
+  }
+}
