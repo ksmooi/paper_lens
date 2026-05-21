@@ -153,17 +153,15 @@ $$
 ```mermaid
 block-beta
   columns 6
-  block:conv3["3×3 Conv<br/>147K params"]:2
-  end
-  block:conv7["7×7 Conv<br/>803K params"]:2
-  end
-  block:conv11["11×11 Conv<br/>1.98M params"]:2
-  end
+
+  conv3["3×3 Conv<br/>147K params"]:2
+  conv7["7×7 Conv<br/>803K params"]:2
+  conv11["11×11 Conv<br/>1.98M params"]:2
+
   space:1
   space:1
   space:1
-  block:attn["Self-Attention<br/>147K params<br/>for ANY k"]:3
-  end
+  attn["Self-Attention<br/>147K params<br/>for ANY k"]:3
 ```
 
 ### ❷ Non-local Operation 作為前置工作
@@ -431,9 +429,13 @@ Non-local operation 的全域計算複雜度為 $O(H^2 W^2 d_{out})$。對一個
 
 8 頭注意力的實作：
 
-$$
-x_{ij} \in \mathbb{R}^{d_{in}} \xrightarrow{\text{split}} \big\{ x_{ij}^{(n)} \in \mathbb{R}^{d_{in}/8} \big\}_{n=1}^{8}
-$$
+```math
+x_{ij} \in \mathbb{R}^{d_{\mathrm{in}}}
+\overset{\mathrm{split}}{\longrightarrow}
+\left\{
+x_{ij}^{(n)} \in \mathbb{R}^{d_{\mathrm{in}} / 8}
+\right\}_{n=1}^{8}
+```
 
 每組 $x_{ij}^{(n)}$ 有獨立的 $W_{Q_n}, W_{K_n}, W_{V_n} \in \mathbb{R}^{d_{out}/8 \times d_{in}/8}$：
 
