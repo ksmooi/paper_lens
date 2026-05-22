@@ -1,0 +1,25 @@
+title: "RoPE (Rotary Position Embedding) 論文導讀"
+topic: attention
+paper_date: 2021-04
+article_date: 2026-05-22
+seed_paper:
+  title: "RoFormer: Enhanced Transformer with Rotary Position Embedding"
+  arxiv_id: "2104.09864"
+  url: "https://arxiv.org/abs/2104.09864"
+dependency_papers:
+  - title: "Self-Attention with Relative Position Representations"
+    arxiv_id: "1803.02155"
+    url: "https://arxiv.org/abs/1803.02155"
+    relation: "RoPE 的前置工作：首篇將相對位置表示引入 Transformer 自注意力機制"
+knowledge_points:
+  - "Transformer 位置編碼的問題設定與兩條技術路線（絕對 vs 相對）"
+  - "Shaw et al. 2018 的加法式相對位置編碼方法"
+  - "RoPE 的核心數學條件：內積只取決於相對位置"
+  - "RoPE 在 2D 空間的完整推導（複數域旋轉）"
+  - "RoPE 的一般形式：block-diagonal 旋轉矩陣與高效計算"
+  - "長距離衰減性質的數學證明（Abel transformation）"
+  - "與線性注意力（Performer）的相容性"
+  - "NTK-aware scaling 與 YaRN 等後續擴展"
+tags: [position-encoding, positional-embedding, attention, relative-position, transformer, linear-attention]
+agent_generated: true
+agent_run_id: "hermes-2026-05-22-001"
