@@ -1,0 +1,24 @@
+title: "Qwen3-Omni 論文導讀"
+topic: vlm
+paper_date: 2025-09
+article_date: 2026-05-22
+seed_paper:
+  title: "Qwen3-Omni Technical Report"
+  arxiv_id: "2509.17765"
+  url: "https://arxiv.org/abs/2509.17765"
+dependency_papers:
+  - title: "Qwen2.5-Omni Technical Report"
+    arxiv_id: "2503.20215"
+    url: "https://arxiv.org/abs/2503.20215"
+    relation: "Qwen3-Omni 的前身：Thinker-Talker 架構的首個實現，Qwen3-Omni 在其基礎上進行了 MoE 升級、AuT 編碼器、多碼本串流等五項關鍵改進"
+knowledge_points:
+  - "Thinker-Talker 架構：將文本生成與語音生成分離為獨立模組，避免模態間干擾"
+  - "MoE 升級：Thinker (30B-A3B) 與 Talker (3B-A0.3B) 從 Dense 升級為 MoE，提升高併發吞吐量"
+  - "AuT 音頻編碼器：自研 encoder 取代 Whisper，0.6B 參數、12.5Hz token rate"
+  - "多碼本 RVQ + MTP：Talker 使用多層殘差碼本表徵，MTP 模組預測殘差 codebooks"
+  - "輕量 ConvNet Code2Wav：取代滑窗 DiT，降低延遲與 FLOPs"
+  - "TM-RoPE：時間對齊多模態位置編碼，支援任意時長串流"
+  - "非退化多模態訓練：嚴格控制變量實驗證明多模態不分害單模態性能"
+tags: [omni, multimodal, speech-generation, audio-understanding, moe]
+agent_generated: true
+agent_run_id: "hermes-2026-05-22-003"
