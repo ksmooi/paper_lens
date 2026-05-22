@@ -1,0 +1,53 @@
+title: "Qwen2.5-VL 視覺語言模型論文導讀"
+topic: vlm
+paper_date: "2025-02"
+article_date: "2026-05-22"
+
+seed_paper:
+  title: "Qwen2.5-VL Technical Report"
+  authors: ["Shuai Bai", "Keqin Chen", "Xuejing Liu", "et al."]
+  arxiv_id: "2502.13923"
+  url: "https://arxiv.org/abs/2502.13923"
+
+dependency_papers:
+  - title: "Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond"
+    authors: ["Jinze Bai", "Shuai Bai", "Shusheng Yang", "et al."]
+    arxiv_id: "2308.12966"
+    url: "https://arxiv.org/abs/2308.12966"
+    relation: "Qwen2.5-VL 的基礎前身，使用 OpenCLIP ViT + Cross-Attention Adapter + Qwen-7B 的經典 VLM 架構"
+
+knowledge_points:
+  - "從 Qwen-VL 到 Qwen2.5-VL 的架構演進：ViT fully attention → window attention，cross-attention adapter → MLP merger"
+  - "Native Dynamic Resolution：任意解析度直接輸入，不再需要統一縮放"
+  - "Window Attention in ViT：32 層中僅 4 層 full attention，計算複雜度從 O(N²) 降至 O(N)"
+  - "MRoPE with Absolute Time Encoding：temporal position ID 對齊到絕對時間而非幀數"
+  - "Dynamic FPS Sampling：訓練時隨機選取不同幀率，增強影片理解的泛化能力"
+  - "三階段 Pre-Training Pipeline + SFT/DPO Post-Training：從 1.2T 到 4.1T tokens 的資料擴增"
+  - "Document Omni-Parsing：QwenVL HTML Format 統一表示文檔元素"
+  - "GUI Agent 能力：ScreenSpot Pro 43.6%，AndroidWorld 超越 GPT-4o"
+
+tags:
+  - vlm
+  - vision-language
+  - multimodal
+  - dynamic-resolution
+  - window-attention
+  - mrope
+  - agent
+  - document-understanding
+
+agent_generated: true
+agent_run_id: "hermes-2026-05-22-001"
+
+agent_decisions:
+  - "選擇 Qwen-VL (2308.12966) 而非 Qwen2-VL (2409.12191) 作為 dependency，因 Qwen-VL 是 Qwen 系列的第一篇 VLM 論文，能最清晰地呈現從原始架構到 Qwen2.5-VL 激進改革的完整演進脈絡"
+  - "所有視覺資產使用 Mermaid 內嵌 code block，無需外部圖片工具，符合 AGENT_GUIDE 中「Mermaid 圖直接內嵌為 code block」的規範"
+  - "文章主檔名使用 README.md 而非 topic-slug.md，遵循 AGENT_GUIDE 的規範"
+
+revisions:
+  - version: 1
+    date: "2026-05-22"
+    note: "初版"
+
+status: published
+has_todos: false
