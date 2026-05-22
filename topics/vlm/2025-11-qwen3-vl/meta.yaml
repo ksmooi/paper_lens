@@ -1,0 +1,42 @@
+title: "Qwen3-VL 技術報告導讀"
+topic: vlm
+paper_date: "2025-11"
+article_date: "2026-05-22"
+seed_paper:
+  title: "Qwen3-VL Technical Report"
+  authors: ["Shuai Bai", "Yuxuan Cai", "Ruizhe Chen", "et al."]
+  arxiv_id: "2511.21631"
+  url: "https://arxiv.org/abs/2511.21631"
+dependency_papers:
+  - title: "Qwen2.5-VL Technical Report"
+    authors: ["Shuai Bai", "Keqin Chen", "Xuejing Liu", "et al."]
+    arxiv_id: "2502.13923"
+    url: "https://arxiv.org/abs/2502.13923"
+    relation: "Qwen3-VL 的直接前身，三大架構升級（Interleaved MRoPE、DeepStack、文字時間戳記）皆為解決 Qwen2.5-VL 的限制"
+knowledge_points:
+  - "Interleaved MRoPE——位置編碼從分區分配到交錯分配的頻譜平衡"
+  - "DeepStack 跨層視覺融合——多層 ViT 特徵注入 LLM 對應層"
+  - "文字時間戳記取代 T-RoPE——從位置編碼時間對齊到文字顯式時間表徵"
+  - "平方根損失重新加權——平衡文字與多模態訓練目標"
+  - "四階段預訓練——從對齊到超長上下文的漸進式擴展"
+  - "三階段後訓練與思考分支——SFT、蒸餾、強化學習"
+  - "資料策略全面升級——品質、多元性、結構化的三方並進"
+  - "稠密與 MoE 統一架構——從 2B 到 235B 的跨量級設計"
+tags:
+  - vlm
+  - vision-language
+  - multimodal
+  - mrope
+  - deepstack
+  - moe
+agent_generated: true
+agent_run_id: "hermes-2026-05-22-001"
+agent_decisions:
+  - "TOPIC_SLUG 為 qwen3-vl，與既有 Qwen-VL、Qwen2.5-VL 命名一致"
+  - "CATEGORY 為 vlm，Qwen3-VL 是 Vision-Language Model"
+  - "Dependency paper 選擇 Qwen2.5-VL (2502.13923)，因 Qwen3-VL 直接繼承其架構"
+  - "nano-pdf 不可用，降級為 pdftotext + agent 語意理解"
+  - "所有視覺資產使用 Mermaid 內嵌，無獨立圖檔"
+  - "使用 architecture-diagram skill 的 Mermaid 替代方案"
+status: published
+has_todos: false
