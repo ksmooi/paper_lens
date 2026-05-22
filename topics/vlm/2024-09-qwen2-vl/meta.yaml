@@ -1,0 +1,23 @@
+title: "Qwen2-VL 論文導讀：動態解析度與多模態位置編碼"
+topic: vlm
+paper_date: 2024-09
+article_date: 2026-05-22
+seed_paper:
+  title: "Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution"
+  arxiv_id: "2409.12191"
+  url: "https://arxiv.org/abs/2409.12191"
+dependency_papers:
+  - title: "Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond"
+    arxiv_id: "2308.12966"
+    url: "https://arxiv.org/abs/2308.12966"
+    relation: "Qwen2-VL 的直接前身，動態解析度與 M-RoPE 的基礎架構來源"
+knowledge_points:
+  - "Naive Dynamic Resolution：從固定解析度到任意解析度的動態視覺處理"
+  - "M-RoPE：將 RoPE 分解為 temporal/height/width 三維度的多模態位置編碼"
+  - "三階段訓練管線：從基礎圖文關聯到多任務預訓練再到指令微調"
+  - "統一圖像與影片處理：以 M-RoPE 天然支援影片時間資訊"
+  - "LVLM 規模法則：模型規模與訓練數據對各項能力的影響"
+  - "VL-Agent 能力：Function calling、UI 操作、機器人控制等視覺 Agent 場景"
+tags: [vlm, vision-language, multimodal, dynamic-resolution, rope, scaling-laws]
+agent_generated: true
+agent_run_id: "hermes-2026-05-22-001"
