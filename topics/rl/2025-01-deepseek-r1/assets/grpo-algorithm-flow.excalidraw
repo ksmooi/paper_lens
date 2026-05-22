@@ -1,0 +1,42 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "hermes-agent",
+  "elements": [
+    { "type": "text", "id": "title", "x": 220, "y": 10, "text": "GRPO Algorithm Flow", "fontSize": 28, "fontFamily": 1, "strokeColor": "#1e1e1e", "originalText": "GRPO Algorithm Flow", "autoResize": true },
+
+    { "type": "rectangle", "id": "bg", "x": 110, "y": 55, "width": 900, "height": 560, "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "dashed", "strokeColor": "#94a3b8", "backgroundColor": "#f8fafc", "opacity": 80, "roundness": { "type": 3 } },
+
+    { "type": "text", "id": "t_q", "x": 440, "y": 70, "width": 230, "height": 30, "text": "Question q", "fontSize": 22, "fontFamily": 1, "strokeColor": "#1e1e1e", "textAlign": "center", "verticalAlign": "middle", "originalText": "Question q", "autoResize": true },
+
+    { "type": "arrow", "id": "a_q", "x": 555, "y": 100, "width": 0, "height": 40, "points": [[0,0],[0,40]], "endArrowhead": "arrow", "strokeColor": "#1e1e1e", "strokeWidth": 2 },
+
+    { "type": "rectangle", "id": "r_policy", "x": 360, "y": 140, "width": 390, "height": 70, "fillStyle": "solid", "strokeWidth": 2, "strokeColor": "#6741d9", "backgroundColor": "#d0bfff", "roundness": { "type": 3 }, "boundElements": [{"id":"t_policy","type":"text"},{"id":"a_policy_out","type":"arrow"}] },
+    { "type": "text", "id": "t_policy", "x": 370, "y": 153, "width": 370, "height": 45, "text": "Old Policy π_θ_old\nSample G outputs per question", "fontSize": 18, "fontFamily": 1, "strokeColor": "#1e1e1e", "textAlign": "center", "verticalAlign": "middle", "containerId": "r_policy", "originalText": "Old Policy π_θ_old\nSample G outputs per question", "autoResize": true },
+
+    { "type": "arrow", "id": "a_policy_out", "x": 555, "y": 210, "width": 0, "height": 30, "points": [[0,0],[0,30]], "endArrowhead": "arrow", "strokeColor": "#1e1e1e", "strokeWidth": 2 },
+
+    { "type": "rectangle", "id": "r_group", "x": 280, "y": 240, "width": 550, "height": 70, "fillStyle": "solid", "strokeWidth": 2, "strokeColor": "#e67700", "backgroundColor": "#fff3bf", "roundness": { "type": 3 }, "boundElements": [{"id":"t_group","type":"text"},{"id":"a_group_out","type":"arrow"}] },
+    { "type": "text", "id": "t_group", "x": 290, "y": 248, "width": 530, "height": 55, "text": "Group Outputs: {o₁, o₂, ..., o_G}\nCompute Rewards: {r₁, r₂, ..., r_G}", "fontSize": 18, "fontFamily": 1, "strokeColor": "#1e1e1e", "textAlign": "center", "verticalAlign": "middle", "containerId": "r_group", "originalText": "Group Outputs: {o₁, o₂, ..., o_G}\nCompute Rewards: {r₁, r₂, ..., r_G}", "autoResize": true },
+
+    { "type": "arrow", "id": "a_group_out", "x": 555, "y": 310, "width": 0, "height": 30, "points": [[0,0],[0,30]], "endArrowhead": "arrow", "strokeColor": "#1e1e1e", "strokeWidth": 2 },
+
+    { "type": "rectangle", "id": "r_adv", "x": 310, "y": 340, "width": 490, "height": 70, "fillStyle": "solid", "strokeWidth": 2, "strokeColor": "#2f9e44", "backgroundColor": "#b2f2bb", "roundness": { "type": 3 }, "boundElements": [{"id":"t_adv","type":"text"},{"id":"a_adv_out","type":"arrow"}] },
+    { "type": "text", "id": "t_adv", "x": 320, "y": 348, "width": 470, "height": 55, "text": "Advantage Normalization\nAᵢ = (rᵢ - μ) / σ   where μ=mean({r}), σ=std({r})", "fontSize": 18, "fontFamily": 1, "strokeColor": "#1e1e1e", "textAlign": "center", "verticalAlign": "middle", "containerId": "r_adv", "originalText": "Advantage Normalization\nAᵢ = (rᵢ - μ) / σ   where μ=mean({r}), σ=std({r})", "autoResize": true },
+
+    { "type": "arrow", "id": "a_adv_out", "x": 555, "y": 410, "width": 0, "height": 30, "points": [[0,0],[0,30]], "endArrowhead": "arrow", "strokeColor": "#1e1e1e", "strokeWidth": 2 },
+
+    { "type": "rectangle", "id": "r_loss", "x": 250, "y": 440, "width": 610, "height": 80, "fillStyle": "solid", "strokeWidth": 2, "strokeColor": "#e8590c", "backgroundColor": "#ffd8a8", "roundness": { "type": 3 }, "boundElements": [{"id":"t_loss","type":"text"},{"id":"a_loss_out","type":"arrow"}] },
+    { "type": "text", "id": "t_loss", "x": 260, "y": 445, "width": 590, "height": 70, "text": "GRPO Loss\nJ(θ) = 1/G Σ min(ratio × A, clip(ratio, 1-ε, 1+ε) × A)\n     - β × KL(π_θ || π_ref)", "fontSize": 16, "fontFamily": 1, "strokeColor": "#1e1e1e", "textAlign": "center", "verticalAlign": "middle", "containerId": "r_loss", "originalText": "GRPO Loss\nJ(θ) = 1/G Σ min(ratio × A, clip(ratio, 1-ε, 1+ε) × A)\n     - β × KL(π_θ || π_ref)", "autoResize": true },
+
+    { "type": "arrow", "id": "a_loss_out", "x": 555, "y": 520, "width": 0, "height": 30, "points": [[0,0],[0,30]], "endArrowhead": "arrow", "strokeColor": "#1e1e1e", "strokeWidth": 2 },
+
+    { "type": "rectangle", "id": "r_update", "x": 360, "y": 550, "width": 390, "height": 50, "fillStyle": "solid", "strokeWidth": 2, "strokeColor": "#1971c2", "backgroundColor": "#a5d8ff", "roundness": { "type": 3 }, "boundElements": [{"id":"t_update","type":"text"}] },
+    { "type": "text", "id": "t_update", "x": 370, "y": 560, "width": 370, "height": 30, "text": "Update Policy π_θ → repeat", "fontSize": 20, "fontFamily": 1, "strokeColor": "#1e1e1e", "textAlign": "center", "verticalAlign": "middle", "containerId": "r_update", "originalText": "Update Policy π_θ → repeat", "autoResize": true },
+
+    { "type": "text", "id": "t_note", "x": 130, "y": 625, "width": 850, "height": 50, "text": "Key insight: GRPO avoids the value model by using group-level statistics as the baseline.\nEach question independently normalizes its own group — making advantage comparable across outputs of varying quality.", "fontSize": 16, "fontFamily": 1, "strokeColor": "#2563eb", "textAlign": "center", "verticalAlign": "middle", "originalText": "Key insight: GRPO avoids the value model by using group-level statistics as the baseline.\nEach question independently normalizes its own group — making advantage comparable across outputs of varying quality.", "autoResize": true }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff"
+  }
+}

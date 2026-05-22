@@ -1,0 +1,28 @@
+title: "DeepSeek-R1 與 GRPO：用強化學習啟發 LLM 推理能力"
+topic: rl
+paper_date: 2025-01
+article_date: 2026-05-22
+seed_paper:
+  title: "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
+  authors: ["DeepSeek-AI", "Daya Guo", "Dejian Yang", "et al."]
+  arxiv_id: "2501.12948"
+  url: "https://arxiv.org/abs/2501.12948"
+  venue: "Nature, 2026"
+  published: "2025-01-22"
+dependency_papers:
+  - title: "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models"
+    authors: ["Zhihong Shao", "Peiyi Wang", "Qihao Zhu", "et al."]
+    arxiv_id: "2402.03300"
+    url: "https://arxiv.org/abs/2402.03300"
+    relation: "GRPO (Group Relative Policy Optimization) 的原始論文，DeepSeek-R1 的核心 RL 演算法源於此"
+knowledge_points:
+  - "GRPO 的動機：去掉 PPO 的 critic model，用 group scores 取代 value function"
+  - "GRPO 的數學公式：group-based advantage estimation、unbiased KL divergence"
+  - "GRPO vs PPO 的關鍵差異：記憶體、KL 處理方式、reference model 更新"
+  - "DeepSeek-R1-Zero：純 RL 無 SFT 的推理能力自演化"
+  - "DeepSeek-R1 的多階段訓練：Cold Start → RL → Rejection Sampling → SFT → RL"
+  - "Reward 設計與 Reward Hacking：rule-based、RM、language consistency"
+  - "Distillation：將長 CoT 推理能力 transfer 給小模型"
+tags: [rl, reasoning, reinforcement-learning, grpo, ppo, rlhf]
+agent_generated: true
+agent_run_id: "hermes-2026-05-22-001"
