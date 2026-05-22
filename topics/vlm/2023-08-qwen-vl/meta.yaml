@@ -1,0 +1,23 @@
+title: "Qwen-VL (Vision-Language Model) 論文導讀"
+topic: vlm
+paper_date: 2023-08
+article_date: 2026-05-22
+seed_paper:
+  title: "Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond"
+  arxiv_id: "2308.12966"
+  url: "https://arxiv.org/abs/2308.12966"
+dependency_papers:
+  - title: "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models"
+    arxiv_id: "2301.12597"
+    url: "https://arxiv.org/abs/2301.12597"
+    relation: "Qwen-VL 的 Position-aware VL Adapter 直接繼承 BLIP-2 Q-Former 的 query-based cross-attention 設計"
+knowledge_points:
+  - "視覺語言 Adapter 的設計哲學：query-based cross-attention + 2D 位置編碼"
+  - "三階段訓練管線的戰略意義：從粗粒度預訓練到多任務預訓練再到指令微調"
+  - "位置編碼在特徵壓縮中的關鍵角色：保留空間資訊以支援 grounding 與 OCR"
+  - "從 BLIP-2 到 Qwen-VL 的架構演進：query 數量的擴充與位置編碼的加入"
+  - "BLIP-2 的三重訓練目標：ITC + ITG + ITM 的數學推導與 attention mask 設計"
+  - "細粒度能力的實現路徑：高解析度、專用資料、特殊 token 格式"
+tags: [vlm, vision-language, multimodal, qwen, grounding, ocr, blip-2]
+agent_generated: true
+agent_run_id: "hermes-2026-05-22-qwen-vl"
