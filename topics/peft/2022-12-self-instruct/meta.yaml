@@ -1,0 +1,24 @@
+title: "Self-Instruct: 自我引導式指令生成方法解讀"
+topic: peft
+paper_date: 2022-12
+article_date: 2026-05-23
+seed_paper:
+  title: "Self-Instruct: Aligning Language Models with Self-Generated Instructions"
+  arxiv_id: "2212.10560"
+  url: "https://arxiv.org/abs/2212.10560"
+dependency_papers:
+  - title: "Training language models to follow instructions with human feedback"
+    arxiv_id: "2203.02155"
+    url: "https://arxiv.org/abs/2203.02155"
+    relation: "Self-Instruct 的主要比較基準與 RLHF baseline"
+knowledge_points:
+  - "指令微調的困境：人工撰寫指令資料成本高、多樣性有限"
+  - "Self-Instruct 四階段 bootstrapping pipeline：指令生成、分類識別、實例生成、過濾"
+  - "Input-first vs Output-first 生成策略：分類任務用 Output-first 避免標籤偏差"
+  - "InstructGPT/RLHF 三階段流程：SFT → RM → PPO，作為對比 baseline"
+  - "實驗結果：GPT3Self-Inst 在 SUPERNI 提升 33.1%，與 InstructGPT-001 僅差 5%"
+  - "資料品質分析：52K 指令、82K 實例，92% 指令有效但僅 54% 完全正確"
+  - "限制：產出品質參差、依賴種子任務品質、僅驗證在 GPT-3 上"
+tags: [instruction-tuning, self-instruct, rlhf, data-generation]
+agent_generated: true
+agent_run_id: "hermes-2026-05-23-001"
