@@ -1,0 +1,47 @@
+title: "LoRA: Low-Rank Adaptation 解讀"
+topic: peft
+paper_date: "2021-06"
+article_date: "2026-05-23"
+
+seed_paper:
+  title: "LoRA: Low-Rank Adaptation of Large Language Models"
+  authors: ["Edward J. Hu", "Yelong Shen", "Phillip Wallis", "et al."]
+  arxiv_id: "2106.09685"
+  url: "https://arxiv.org/abs/2106.09685"
+  venue: "ICLR 2022"
+  published: "2021-06-17"
+
+dependency_papers:
+  - title: "Parameter-Efficient Transfer Learning for NLP"
+    authors: ["Neil Houlsby", "Andrei Giurgiu", "Stanislaw Jastrzebski", "et al."]
+    arxiv_id: "1902.00751"
+    url: "https://arxiv.org/abs/1902.00751"
+    relation: "Adapter 方法的原始論文，LoRA 的核心對比 baseline，兩者共享參數高效微調的問題設定但提出不同解法"
+
+knowledge_points:
+  - "參數高效微調的問題設定：為何全參數微調在大模型時代不敷使用"
+  - "低秩內在維度假說：微調的權重更新具有低秩結構"
+  - "LoRA 核心數學定義：ΔW = BA 的低秩分解與前向傳播"
+  - "零推理延遲的設計哲學：可合併權重 vs Adapter 的串聯延遲"
+  - "Adapter 瓶頸架構：串聯 bottleck 層的設計與限制"
+  - "LoRA 的實驗配置：哪些層適用、rank 選擇、對比結果"
+  - "ΔW 與 W₀ 之間的子空間關係：放大任務相關方向"
+
+tags:
+  - peft
+  - lora
+  - adapter
+  - parameter-efficient
+  - fine-tuning
+  - transformer
+  - low-rank
+
+agent_generated: true
+agent_run_id: "hermes-2026-05-23-001"
+
+agent_decisions:
+  - "選擇 Adapter (Houlsby 2019) 作為唯一的 dependency paper，因為它是 LoRA 在 method 章節直接對比的關鍵 baseline，兩者的架構差異（串聯 vs 並聯）構成本文的核心對比軸線"
+  - "未納入 Prefix Tuning 或 Prompt Tuning（雖然 LoRA 也有比較），因為 DEPENDENCY_PAPER_COUNT = 1，且 Adapter 與 LoRA 的技術血緣更近"
+
+status: published
+has_todos: false
