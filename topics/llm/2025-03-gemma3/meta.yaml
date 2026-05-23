@@ -1,0 +1,49 @@
+title: "Gemma 3: 輕量級開放語言模型的技術報告導讀"
+topic: llm
+paper_date: "2025-03"
+article_date: "2026-05-23"
+
+seed_paper:
+  title: "Gemma 3 Technical Report"
+  authors: ["Gemma Team", "Aishwarya Kamath", "Johan Ferret", "et al."]
+  arxiv_id: "2503.19786"
+  url: "https://arxiv.org/abs/2503.19786"
+  venue: "arXiv preprint"
+  published: "2025-03-25"
+
+dependency_papers:
+  - title: "Gemma 2: Improving Open Language Models at a Practical Size"
+    authors: ["Gemma Team", "Morgane Riviere", "Shreya Pathak", "et al."]
+    arxiv_id: "2408.00118"
+    url: "https://arxiv.org/abs/2408.00118"
+    relation: "Gemma 3 的直接前身，引入了 1:1 local/global attention 與選擇性知識蒸餾"
+
+knowledge_points:
+  - "5:1 Local/Global Attention 比例設計：從 1:1 提升到 5:1，搭配 1024 sliding window，極大化 KV-cache 節省"
+  - "知識蒸餾從選配變標配：256 logits sampling 實現全系列蒸餾訓練"
+  - "QK-Norm 取代 Soft-Capping：更穩定的注意力正則化方式"
+  - "RoPE 雙軌策略：global layer base frequency 1M，local layer 維持 10k，搭配位置內插擴展至 128K"
+  - "視覺模態務實整合：SigLIP 400M 凍結編碼器 + Pan & Scan 推理策略"
+  - "後訓練配方進化：BOND + WARM + WARP 多層次穩定化"
+  - "量化感知訓練 (QAT)：per-channel int4、per-block int4、SFP8 三種量化格式"
+
+tags:
+  - llm
+  - gemma
+  - open-models
+  - attention
+  - kv-cache
+  - multimodal
+  - distillation
+  - post-training
+
+agent_generated: true
+agent_run_id: "hermes-2026-05-23-001"
+
+agent_decisions:
+  - "選擇 Gemma 2 (2408.00118) 作為唯一 dependency paper，因為 Gemma 3 的架構和訓練演進直接建立在 Gemma 2 之上"
+  - "Topic 分類為 llm 而非 vlm，因為核心貢獻在 LLM 架構設計而不僅是多模態能力"
+  - "TOPIC_SLUG 使用 gemma3（通用簡稱），遵循 AGENT_GUIDE 的 paper slug 規則"
+
+status: published
+has_todos: false
