@@ -1,0 +1,41 @@
+title: "QLoRA: 4-bit 量化 + LoRA 的高效微調方法解讀"
+topic: peft
+paper_date: "2023-05"
+article_date: "2026-05-23"
+
+seed_paper:
+  title: "QLoRA: Efficient Finetuning of Quantized LLMs"
+  authors: ["Tim Dettmers", "Artidoro Pagnoni", "Ari Holtzman", "et al."]
+  arxiv_id: "2305.14314"
+  url: "https://arxiv.org/abs/2305.14314"
+  published: "2023-05-23"
+
+dependency_papers:
+  - title: "LoRA: Low-Rank Adaptation of Large Language Models"
+    authors: ["Edward J. Hu", "Yelong Shen", "Phillip Wallis", "et al."]
+    arxiv_id: "2106.09685"
+    url: "https://arxiv.org/abs/2106.09685"
+    relation: "QLoRA 的核心骨架——所有可訓練參數來自 LoRA adapter"
+
+knowledge_points:
+  - "全微調的成本問題與 LoRA 的低秩假設"
+  - "4-bit NormalFloat (NF4)——資訊理論最優量化資料類型"
+  - "Double Quantization——對量化常數再量化以節省記憶體"
+  - "全層 LoRA 的必要性 vs 傳統 LoRA 的選擇策略"
+  - "QLoRA 的實際效能: Guanaco 聊天機器人與實驗分析"
+  - "資料品質 vs 資料規模——QLoRA 大規模實驗的發現"
+  - "GPT-4 作為評估工具的可靠性檢驗"
+
+tags:
+  - peft
+  - quantization
+  - lora
+  - efficient-training
+  - memory-optimization
+
+agent_generated: true
+agent_run_id: "hermes-2026-05-23-qlora"
+
+agent_decisions:
+  - "選擇 LoRA (2106.09685) 作為唯一 dependency paper——QLoRA 的核心是 Quantized LoRA,不讀 LoRA 就無法理解 QLoRA 的微調機制"
+  - "分類為 peft 而非 efficiency——雖然 QLoRA 包含量化技術,但其核心貢獻是微調方法(4-bit + LoRA),AGENT_GUIDE 也明確將 QLoRA 列在 peft 下"
