@@ -1,0 +1,40 @@
+title: "GQA: Grouped Query Attention 解讀——從 MHA 到 MQA 再到 GQA 的演進"
+topic: attention
+paper_date: "2023-05"
+article_date: "2026-05-23"
+
+seed_paper:
+  title: "GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints"
+  authors: ["Joshua Ainslie", "James Lee-Thorp", "Michiel de Jong", "et al."]
+  arxiv_id: "2305.13245"
+  url: "https://arxiv.org/abs/2305.13245"
+  venue: ""
+  published: "2023-05-22"
+
+dependency_papers:
+  - title: "Fast Transformer Decoding: One Write-Head is All You Need"
+    authors: ["Noam Shazeer"]
+    arxiv_id: "1911.02150"
+    url: "https://arxiv.org/abs/1911.02150"
+    relation: "MQA (Multi-Query Attention) 是 GQA 的直接前身，GQA 將其推廣為中間數量的 key-value heads"
+
+knowledge_points:
+  - "自回歸推論的記憶體頻寬瓶頸：為什麼 KV cache 是解碼器推論的效能瓶頸"
+  - "MQA (Multi-Query Attention)：用單一 key/value head 換取推論速度，但付出品質與訓練穩定性代價"
+  - "GQA (Grouped-Query Attention)：將 query heads 分組，每組共享 key/value head，在品質與速度之間取得平衡"
+  - "Uptraining 方法：透過 mean-pooling 將既有 MHA checkpoint 轉換為 MQA/GQA，只需原始 5% 的訓練量"
+  - "訓練穩定性：MQA 在 fine-tuning 時易發散，GQA 則穩定如同 MHA"
+
+tags:
+  - attention
+  - kv-cache
+  - inference-optimization
+  - grouped-query-attention
+  - multi-query-attention
+
+agent_generated: true
+agent_run_id: "hermes-2026-05-23-001"
+
+agent_decisions:
+  - "選擇 MQA (Shazeer 2019) 作為 dependency，因 GQA 論文明確將其定位為 generalization of MQA，而非選擇原始 Transformer 論文 (Vaswani 2017)"
+  - "分類為 attention 而非 efficiency，因核心貢獻是 attention 頭部結構的重設計，非通用推論優化基礎設施"
