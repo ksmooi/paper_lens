@@ -1,0 +1,42 @@
+title: "Adam: Adaptive Moment Estimation 深度解讀"
+topic: optimization
+paper_date: "2014-12"
+article_date: "2026-05-24"
+seed_paper:
+  title: "Adam: A Method for Stochastic Optimization"
+  authors: ["Diederik P. Kingma", "Jimmy Ba"]
+  arxiv_id: "1412.6980"
+  url: "https://arxiv.org/abs/1412.6980"
+  venue: "ICLR 2015"
+  published: "2014-12-22"
+dependency_papers:
+  - title: "Adaptive Subgradient Methods for Online Learning and Stochastic Optimization"
+    authors: ["John Duchi", "Elad Hazan", "Yoram Singer"]
+    arxiv_id: ""
+    url: "https://www.jmlr.org/papers/volume12/duchi11a/duchi11a.pdf"
+    relation: "AdaGrad，首次引入 per-parameter adaptive learning rate 方法，Adam 的二階動量設計直接繼承自 AdaGrad，但將累加改為 EMA"
+knowledge_points:
+  - "SGD 的局限性：單一學習率無法適應所有參數，稀疏特徵學不到"
+  - "AdaGrad 的貢獻與限制：per-parameter adaptive LR 很棒，但累加機制讓學習率歸零"
+  - "Momentum 的概念：一階動量 EMA 平滑梯度方向"
+  - "RMSProp 的概念：用 EMA 取代累加，解決學習率歸零問題"
+  - "Adam 核心演算法：同時維護 m_t（一階動量 EMA）與 v_t（二階動量 EMA）"
+  - "Bias Correction 機制：除以 (1-βᵗ) 消除初始化偏差"
+  - "更新規則數學特性：SNR 自動 annealing、梯度縮放不變性、effective stepsize 有界"
+  - "Adam 與 AdaGrad/RMSProp 的形式化對比：極限條件下 Adam 退化為 AdaGrad"
+  - "已知限制與後續發展：AMSGrad 不收斂問題、泛化爭論、AdamW 解耦 weight decay"
+tags:
+  - optimization
+  - adaptive-learning-rate
+  - momentum
+  - deep-learning-training
+agent_generated: true
+agent_run_id: "hermes-2026-05-24-001"
+agent_decisions:
+  - "選擇 AdaGrad (Duchi et al., JMLR 2011) 作為 dependency paper，因 Adam 論文明確指出 AdaGrad 是核心靈感來源"
+  - "AdaGrad 無 arxiv 版本（發表於 JMLR），使用官方 JMLR 連結取代 arxiv_id"
+  - "TOPIC_SLUG 使用通用簡稱「adam」，類別選用既有類別「optimization」"
+  - "Excalidraw 示意圖無法直接嵌入為 PNG/SVG（無 screenshot 工具），保留 .excalidraw 檔案供讀者自行匯入 excalidraw.com 檢視"
+  - "文章結構採用任務 prompt 的 5 段結構（背景→知識點→演進→數學→總結），同時滿足 AGENT_GUIDE 要求的 TL;DR、核心知識點、方法詳解、實驗結果、延伸閱讀章節"
+status: published
+has_todos: false
