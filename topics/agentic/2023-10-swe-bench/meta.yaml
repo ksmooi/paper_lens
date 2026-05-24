@@ -1,0 +1,44 @@
+# Paper Lens - Article Metadata
+title: "SWE-bench: 從 HumanEval 到真實世界的程式碼生成評估"
+topic: agentic
+paper_date: "2023-10"
+article_date: "2026-05-24"
+
+seed_paper:
+  title: "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"
+  authors: ["Carlos E. Jimenez", "John Yang", "Alexander Wettig", "et al."]
+  arxiv_id: "2310.06770"
+  url: "https://arxiv.org/abs/2310.06770"
+  venue: "ICLR 2024"
+  published: "2023-10-10"
+
+dependency_papers:
+  - title: "Evaluating Large Language Models Trained on Code"
+    authors: ["Mark Chen", "Jerry Tworek", "Heewoo Jun", "et al."]
+    arxiv_id: "2107.03374"
+    url: "https://arxiv.org/abs/2107.03374"
+    relation: "HumanEval / Codex：SWE-bench 的前身基準，建立了 pass@k functional correctness 評估標準"
+
+knowledge_points:
+  - "Functional Correctness (pass@k)：從 BLEU score 到 unit test 的評估演進"
+  - "SWE-bench 資料集構建管線：三階段篩選從 90K PRs 到 2,294 任務"
+  - "SWE-bench 的獨特挑戰：長上下文、跨檔案編輯、檢索瓶頸、問題定位"
+  - "檢索策略對效能的影響：BM25 vs Oracle，檢索為當前最大瓶頸"
+  - "模型效能現狀：Claude 2 僅 1.96% 解決率，揭示 LLM 在真實軟體工程的弱點"
+  - "SWE-Llama：開源模型長上下文微調的方法論與教訓"
+  - "SWE-bench 的限制與後續發展：Agent-based 方法的崛起"
+
+tags:
+  - code-generation
+  - benchmark
+  - software-engineering
+  - evaluation
+  - llm-agents
+
+agent_generated: true
+agent_run_id: "hermes-2026-05-24-001"
+
+agent_decisions:
+  - "選擇 Codex/HumanEval (2107.03374) 作為唯一的 dependency paper，因為它是 SWE-bench 最核心的前身基準，且論文明確以 HumanEval 作為對比對象"
+  - "分類為 agentic 而非 llm，因為 SWE-bench 的核心是評估 LLM 在真實軟體工程場景中的 Agent 級能力（程式碼理解、定位、編輯、測試驗證），而非 LLM 架構本身"
+  - "使用 Excalidraw 手繪風製作 HumanEval vs SWE-bench 概念對比圖"
