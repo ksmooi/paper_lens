@@ -1,0 +1,25 @@
+title: "Reflexion：語言代理的語言強化學習解讀"
+topic: agentic
+paper_date: 2023-03
+article_date: 2026-05-24
+seed_paper:
+  title: "Reflexion: Language Agents with Verbal Reinforcement Learning"
+  arxiv_id: "2303.11366"
+  url: "https://arxiv.org/abs/2303.11366"
+dependency_papers:
+  - title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+    arxiv_id: "2210.03629"
+    url: "https://arxiv.org/abs/2210.03629"
+    relation: "Reflexion 的 Actor 模型基礎與主要對比基準"
+knowledge_points:
+  - "從 ReAct 到 Reflexion：從推理-行動協同到跨 trial 語言強化學習的演進"
+  - "Verbal Reinforcement（語言強化）：將環境回饋轉譯為語言摘要作為語意梯度"
+  - "Actor-Evaluator-Self-Reflection 三元架構：生成、評估、反思的協作循環"
+  - "雙層記憶架構：Short-term trajectory vs Long-term episodic memory"
+  - "回饋訊號放大策略：從稀疏獎勵到行動建議的語言轉譯"
+  - "三領域實證：決策（AlfWorld +22%）、推理（HotPotQA +20%）、程式碼（HumanEval 91% pass@1）"
+  - "消融實驗洞察：Self-reflection > episodic memory；測試生成對程式碼品質的關鍵影響"
+  - "限制：語言策略優化的 local minima、context window 對記憶容量的約束"
+tags: [agent, reflection, verbal-rl, llm-agent, reasoning]
+agent_generated: true
+agent_run_id: "hermes-2026-05-24-001"
