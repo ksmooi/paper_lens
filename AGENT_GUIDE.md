@@ -40,7 +40,8 @@ topics/{topic-slug}/{YYYY-MM}-{paper-slug}/
 | `peft` | 參數高效微調與指令微調:LoRA、QLoRA、Adapter、Prefix-Tuning、FLAN、Alpaca |
 | `rag` | 檢索增強生成:稠密檢索、自適應 RAG、圖譜增強、RAG 評估 |
 | `rl` | 強化學習與對齊:PPO、RLHF、DPO、過程監督、推理強化。Agent 框架見 `agentic` |
-| `agentic` | LLM Agent:規劃、反思、工具使用、程式碼 Agent、Multi-Agent、Harness |
+| `agentic` | LLM Agent：規劃、反思、工具使用、程式碼 Agent、Multi-Agent。Agent 外部控制層見 `harness` |
+| `harness` | Harness Engineering：Agent 外部控制層、Scaffolding、Context Engineering、Runtime Orchestration、Tool Governance、Verification Gate、Evaluation Harness |
 
 ### 主題分類規則
 
@@ -54,11 +55,15 @@ topics/{topic-slug}/{YYYY-MM}-{paper-slug}/
 |----------|----------|------|
 | RLHF、InstructGPT | `rl` | 核心貢獻是 RL 訓練框架 |
 | LoRA、QLoRA、指令微調 | `peft` | 核心貢獻是參數高效適應方法 |
-| ControlNet、LoRA for Diffusion | `peft` | 核心貢獻是微調方法,非擴散架構 |
-| ReAct、Toolformer | `agentic` | 核心貢獻是 Agent 行動框架 |
+| ControlNet、LoRA for Diffusion | `peft` | 核心貢獻是微調方法，非擴散架構 |
+| ReAct、Toolformer | `agentic` | 核心貢獻是讓 LLM 具備推理、行動與工具使用能力 |
+| AgentBench、SWE-Bench、WebArena | `agentic` | 核心貢獻是評估 Agent 在不同環境中的任務能力 |
+| Natural-Language Agent Harnesses、AutoHarness | `harness` | 核心貢獻是設計 Agent 外部控制層、執行規格與 harness runtime |
+| UTBoost、SWE-Bench-CL | `harness` | 核心貢獻是強化 Agent 評估流程、verification gate、測試可靠性或 continual evaluation |
+| Building AI Coding Agents for the Terminal、Scalable Agent Scaffolding | `harness` | 核心貢獻是 coding agent 的 scaffolding、context engineering、runtime orchestration 與可控執行流程 |
 | DeepSeek-R1、GRPO | `rl` | 核心貢獻是用 RL 強化推理能力 |
 | FlashAttention | `attention` | 核心貢獻是 Attention 計算方式重設計 |
-| CLIP(整體架構) | `vlm` | 視覺語言對齊的完整系統 |
+| CLIP（整體架構） | `vlm` | 視覺語言對齊的完整系統 |
 | Sentence-BERT、SimCSE | `embedding` | 核心貢獻是句向量訓練方法 |
 
 ### 日期規則

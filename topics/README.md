@@ -50,7 +50,8 @@ topics/
 |------|------|----------|
 | [rag](./rag/) | 檢索增強生成:稠密檢索、自適應 RAG、圖譜增強 | DPR、Self-RAG、GraphRAG |
 | [rl](./rl/) | 強化學習與對齊:策略優化、RLHF、直接偏好優化、推理強化 | PPO、InstructGPT、DPO、DeepSeek-R1 |
-| [agentic](./agentic/) | LLM Agent:規劃、反思、工具使用、Multi-Agent、評估 Harness | ReAct、Reflexion、AutoGen、SWE-Bench |
+| [agentic](./agentic/) | LLM Agent：推理與行動、工具使用、反思、自我改進、Multi-Agent 協作 | ReAct、Reflexion、AutoGen、SWE-agent |
+| [harness](./harness/) | Harness Engineering：Agent 外部控制層、Scaffolding、Context Engineering、Runtime、Evaluation Gate | Natural-Language Agent Harnesses、AutoHarness、Building AI Coding Agents for the Terminal |
 
 ---
 
