@@ -1,0 +1,43 @@
+title: "AutoHarness: 用 LLM 自動合成 Code Harness 防止 Agent 違規行為"
+topic: harness
+paper_date: "2026-02"
+article_date: "2026-05-25"
+seed_paper:
+  title: "AutoHarness: improving LLM agents by automatically synthesizing a code harness"
+  authors: ["Xinghua Lou", "Miguel Lázaro-Gredilla", "Antoine Dedieu", "et al."]
+  arxiv_id: "2603.03329"
+  url: "https://arxiv.org/abs/2603.03329"
+  venue: "arXiv (Google DeepMind)"
+  published: "2026-02-10"
+dependency_papers:
+  - title: "Code Repair with LLMs gives an Exploration-Exploitation Tradeoff"
+    authors: ["Hao Tang", "Keya Hu", "Jin Peng Zhou", "et al."]
+    arxiv_id: "2405.17503"
+    url: "https://arxiv.org/abs/2405.17503"
+    relation: "AutoHarness 的 Thompson Sampling tree search 直接繼承自此論文的 REx 演算法"
+knowledge_points:
+  - "Action Applicability 問題：LLM agent 為何頻繁違規"
+  - "Code Harness 的概念與角色：Harness 在 LLM agent 系統中的定位"
+  - "三種 Code Harness 變體：Action-Filter、Action-Verifier、Policy"
+  - "Thompson Sampling Tree Search：REx 演算法的核心機制"
+  - "Beta-Bernoulli 數學框架：Thompson Sampling 在程式碼求精中的具體實現"
+  - "AutoHarness 的訓練流程：從初始程式碼到完成 harness 的迭代過程"
+  - "Harness-as-Policy 的極致表現：完全用程式碼取代 LLM 推理"
+  - "已知限制與未來方向：單環境 harness、無法遷移學習、harness-as-policy 的 2P 限制"
+tags:
+  - agent
+  - harness
+  - code-generation
+  - tree-search
+  - thompson-sampling
+  - game-playing
+agent_generated: true
+agent_run_id: "hermes-2026-05-25-001"
+agent_decisions:
+  - "選擇 Tang et al. (2024) Code Repair with LLMs 作為 dependency paper，因為 AutoHarness 的 method 章節明確提及受此論文啟發"
+  - "不使用 Reflexion、Code as Policies 等雖然相關但非直接基礎的論文作為 dependency"
+  - "由於 REx 的 Arxiv ID 不直接出現在引用列表，透過標題搜索找到對應 ID 2405.17503"
+  - "CATEGORY = harness（既有類別），因為論文的核心貢獻在 agent 外部控制層而非 agent 內部能力"
+  - "TOPIC_SLUG = autoharness，使用論文通用簡稱"
+status: published
+has_todos: false
