@@ -1,0 +1,94 @@
+# Paper Lens - Article Metadata
+# 規範請見 AGENT_GUIDE.md
+
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+# 文章標題,通常是「{方法簡稱}: {副標題}」格式
+title: "OPENDEV: 為 Terminal 打造 AI Coding Agent 的 Scaffolding、Harness 與 Context Engineering"
+
+# Topic slug，必須是 AGENT_GUIDE.md 中列舉的其中一個
+topic: harness
+
+# 論文發表年月(對應目錄名稱)，格式 YYYY-MM
+# 以 arxiv v1 發表時間為準
+paper_date: "2026-03"
+
+# 文章撰寫日期，格式 YYYY-MM-DD
+article_date: "2026-05-25"
+
+
+# ============================================================
+# 種子論文(必填，僅一篇)
+# ============================================================
+seed_paper:
+  title: "Building Effective AI Coding Agents for the Terminal: Scaffolding, Harness, Context Engineering, and Lessons Learned"
+  authors: ["Nghi D. Q. Bui"]
+  arxiv_id: "2603.05344"
+  url: "https://arxiv.org/abs/2603.05344"
+  venue: "arXiv preprint"          # 選填:會議或期刊
+  published: "2026-03-05"         # 選填:arxiv v1 發表的完整日期
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "HyperAgent: Generalist Software Engineering Agents to Solve Coding Tasks at Scale"
+    authors: ["Huy Nhat Phan", "Tien N. Nguyen", "Phong X. Nguyen", "Nghi D. Q. Bui"]
+    arxiv_id: "2409.16299"
+    url: "https://arxiv.org/abs/2409.16299"
+    relation: "同作者群的前身工作，證明多角色不同模型的 multi-agent 架構在 SE 任務上的有效性，OPENDEV 在此基礎上轉向 terminal-native 互動式設計"
+
+
+# ============================================================
+# 核心知識點(建議 3~6 點)
+# ============================================================
+knowledge_points:
+  - "Compound AI System 架構——不是單一 LLM，而是多個 agent、workflow、tool 的結構化組合"
+  - "Scaffolding vs. Harness——agent 建造階段（system prompt、tool schemas 靜態組裝）與執行階段（tool dispatch、context management 動態調度）的明確分工"
+  - "Extended ReAct Execution Loop——Staged Compaction → Thinking → Self-Critique → Action → Tool Dispatch → Post-Processing 六階段"
+  - "Adaptive Context Compaction（五階段漸進壓縮）——70% warning → 80% observation masking → 85% fast pruning → 90% aggressive masking → 99% full LLM summarization"
+  - "Defense-in-Depth Safety Architecture——Prompt-Level → Schema-Level → Runtime Approval → Tool-Level → Lifecycle Hooks 五層安全架構"
+  - "從 HyperAgent 到 OPENDEV 的設計演進——從 benchmark-oriented centralized multi-agent 到 interactive terminal-native compound system"
+
+
+# ============================================================
+# 標籤(輔助分類與搜尋)
+# ============================================================
+tags:
+  - coding-agent
+  - scaffolding
+  - harness
+  - context-engineering
+  - cli-agent
+  - compound-ai-system
+  - multi-agent
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+
+# 是否由 agent 生成(true / false)
+agent_generated: true
+
+# Agent 執行批次的識別碼，方便事後追溯
+agent_run_id: "hermes-2026-05-25-003"
+
+# Agent 在本次執行中，規格未明確而自行判斷的決策摘要(可選填)
+agent_decisions:
+  - "選擇 HyperAgent (2409.16299) 而非 OpenHands (2407.16741) 作為 dependency，因為同作者群提供最直接的學術前身，且 HyperAgent 的設計哲學（multi-agent、不同角色不同模型）與 OPENDEV 形成最清晰的演進脈絡"
+  - "AGENT_GUIDE 規範要求目錄為 topics/{topic-slug}/{YYYY-MM}-{paper-slug}/，其中 paper-slug 為 'opendev'（用論文提出的系統名稱，符合 AGENT_GUIDE 中「用論文通用簡稱」的規則）"
+
+
+# ============================================================
+# 狀態(選填)
+# ============================================================
+
+# 文章狀態: draft | published | needs-revision
+status: published
+
+# 是否還有待補的 TODO(true / false)
+has_todos: false
