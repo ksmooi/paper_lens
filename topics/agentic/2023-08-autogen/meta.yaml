@@ -1,0 +1,43 @@
+title: "AutoGen: 多智能體對話框架論文導讀"
+topic: agentic
+paper_date: "2023-08"
+article_date: "2026-05-25"
+
+seed_paper:
+  title: "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation"
+  authors: ["Qingyun Wu", "Gagan Bansal", "Jieyu Zhang", "et al."]
+  arxiv_id: "2308.08155"
+  url: "https://arxiv.org/abs/2308.08155"
+  venue: ""
+  published: "2023-08-16"
+
+dependency_papers:
+  - title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+    authors: ["Shunyu Yao", "Jeffrey Zhao", "Dian Yu", "et al."]
+    arxiv_id: "2210.03629"
+    url: "https://arxiv.org/abs/2210.03629"
+    relation: "ReAct 是 LLM agent 的基礎範式，AutoGen 將其單 agent 循環擴展為多 agent 對話"
+
+knowledge_points:
+  - "Conversable Agent 設計——AutoGen 如何定義一個可對話、可自定義的智能體"
+  - "Conversation Programming 範式——為何對話可以作為複雜工作流的統一抽象"
+  - "從 ReAct 到多 agent 對話的擴展——單一 agent 循環如何演變為多 agent 消息傳遞"
+  - "多 agent 對話模式與互動拓撲——AutoGen 支援的三種主要對話模式"
+  - "Agent 的模組化與可組合性——Reply function 機制與自定義行為"
+
+tags:
+  - multi-agent
+  - llm-agent
+  - conversation-framework
+  - microsoft
+
+agent_generated: true
+agent_run_id: "hermes-2026-05-25-001"
+
+agent_decisions:
+  - "選擇 ReAct (2210.03629) 作為 dependency paper，因為它是 LLM agent 的 foundational 方法，AutoGen 直接引用其作為基礎"
+  - "分類到 agentic 類別（既有類別），符合 AutoGen 的多智能體對話核心貢獻"
+  - "slug 為 autogen（community 慣用名），無衝突"
+
+status: published
+has_todos: false
