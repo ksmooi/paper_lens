@@ -1,0 +1,25 @@
+---
+title: "Agent Scaffolding 論文導讀：Confucius Code Agent 與可擴展的代理人框架"
+topic: harness
+paper_date: 2025-12
+article_date: 2026-05-25
+seed_paper:
+  title: "Confucius Code Agent: Scalable Agent Scaffolding for Real-World Codebases"
+  arxiv_id: "2512.10398"
+  url: "https://arxiv.org/abs/2512.10398"
+dependency_papers:
+  - title: "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering"
+    arxiv_id: "2405.15793"
+    url: "https://arxiv.org/abs/2405.15793"
+    relation: "SWE-agent 建立了 ACI 概念與 coding agent 的基礎 scaffolding 範式，CCA 在其上擴展完整的三層 scaffold 設計"
+knowledge_points:
+  - "Agent-Computer Interface (ACI)：LLM 需要專門設計的操作介面，而非人類使用的 shell"
+  - "Scaffolding 的定義：Orchestration、Memory structures、Tool abstractions 三層設計"
+  - "AX/UX/DX 三通道分離：避免 context bloat，各自的資訊呈現最佳化"
+  - "層級式記憶與上下文壓縮：Architect Agent 驅動的結構化摘要機制"
+  - "Extensions 模組化系統：Callback hooks 實現 orchestration 與 capabilities 的分離"
+  - "Meta-Agent 自動化循環：Build-Test-Improve 自動化 agent 建構與優化"
+  - "Scaffolding 補償模型不足：較弱模型 + 強 scaffold 可超越更強模型"
+tags: [coding-agent, scaffolding, agent-architecture, sw-engineering, harness]
+agent_generated: true
+agent_run_id: "hermes-2026-05-25-001"
