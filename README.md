@@ -42,7 +42,8 @@ paper-lens/
 │   ├── peft/                  # 參數高效微調與指令微調
 │   ├── rag/                   # 檢索增強生成
 │   ├── rl/                    # 強化學習與對齊(RLHF、DPO 等)
-│   └── agentic/               # LLM Agent、工具使用、Multi-Agent、Harness
+│   ├── agentic/               # LLM Agent、工具使用、程式碼 Agent、Multi-Agent
+│   └── harness/               # Agent 外部控制層、Scaffolding、Runtime、Evaluation Harness
 ├── _templates/                # 文章與 metadata 範本
 ├── _index/                    # 自動生成的索引(依日期/主題/論文)
 ├── scripts/                   # 索引生成、文章驗證腳本
@@ -82,7 +83,8 @@ topics/llm/2023-05-dpo/
 | [PEFT](./topics/peft/) | 參數高效微調:LoRA、QLoRA、Adapter、指令微調 |
 | [RAG](./topics/rag/) | 檢索增強生成:稠密檢索、自適應 RAG |
 | [RL](./topics/rl/) | 強化學習與對齊:PPO、RLHF、DPO、推理強化 |
-| [Agentic](./topics/agentic/) | LLM Agent:規劃、工具使用、Multi-Agent、Harness |
+| [Agentic](./topics/agentic/) | LLM Agent：規劃、反思、工具使用、程式碼 Agent、Multi-Agent |
+| [Harness](./topics/harness/) | Harness Engineering：Agent 外部控制層、Scaffolding、Context Engineering、Runtime Orchestration、Tool Governance、Verification Gate、Evaluation Harness |
 
 新主題會隨閱讀範圍擴張而新增。
 
