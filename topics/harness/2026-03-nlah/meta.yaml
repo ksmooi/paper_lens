@@ -1,0 +1,23 @@
+title: "Natural-Language Agent Harnesses (NLAHs) 論文導讀"
+topic: harness
+paper_date: 2026-03
+article_date: 2026-05-25
+seed_paper:
+  title: "Natural-Language Agent Harnesses"
+  arxiv_id: "2603.25723"
+  url: "https://arxiv.org/abs/2603.25723"
+dependency_papers:
+  - title: "Building Effective AI Coding Agents for the Terminal: Scaffolding, Harness, Context Engineering, and Lessons Learned"
+    arxiv_id: "2603.05344"
+    url: "https://arxiv.org/abs/2603.05344"
+    relation: "NLAH 的前身工作，定義了 harness engineering 的 scaffolding/harness 分離與五個核心設計張力"
+knowledge_points:
+  - "Harness 的表示問題：為何需要將 harness policy 從 code 中分離為可編輯的自然語言文件"
+  - "NLAH (Natural-Language Agent Harness)：可編輯的自然語言文件，描述 run-level harness policy"
+  - "IHR (Intelligent Harness Runtime)：共享 runtime，將 NLAH 解釋為 agent calls、handoffs、state updates、validation gates、artifact contracts"
+  - "Natural Language / Code 分工：NL 負責 harness policy，Code 負責 exact mechanisms"
+  - "三種 Harness Realization 的對比：Code Harness vs Prompted NLAH vs IHR-executed NLAH"
+  - "Module Ablation：一旦 harness 變為明確物件，可透過 module-level intervention 分析各模組貢獻"
+tags: [harness, agent, runtime, natural-language, orchestration, scaffold]
+agent_generated: true
+agent_run_id: "hermes-2026-05-25-nlah-001"
