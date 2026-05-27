@@ -1,0 +1,29 @@
+title: "Scaffolding & Harness for CLI Coding Agents 論文導讀"
+topic: harness
+paper_date: 2026-03
+article_date: 2026-05-27
+seed_paper:
+  title: "Building Effective AI Coding Agents for the Terminal: Scaffolding, Harness, Context Engineering, and Lessons Learned"
+  arxiv_id: "2603.05344"
+  url: "https://arxiv.org/abs/2603.05344"
+dependency_papers:
+  - title: "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering"
+    arxiv_id: "2405.15793"
+    url: "https://arxiv.org/abs/2405.15793"
+    relation: "SWE-agent 提出 ACI (Agent-Computer Interface) 概念，為 benchmark-oriented 框架的代表。OPENDEV 與其形成 benchmark vs interactive daily-use 的明確對比。"
+knowledge_points:
+  - "Scaffolding vs Harness：建構期與執行期的明確分離，eager construction 保證 agent 建構即就緒"
+  - "Compound AI System：五種模型角色（Action/Thinking/Critique/Vision/Compact）的 per-workflow LLM binding"
+  - "Schema-Level 安全隔離：讓工具對 agent 不可見（invisibility）比 runtime 阻擋（blocking）更安全"
+  - "Adaptive Context Compaction (ACC)：五階段漸進式壓縮（70%→80%→85%→90%→99%），峰值 context 減少 54%"
+  - "Extended ReAct Loop：thinking phase 與 action phase 分離，含 doom-loop detection 與 self-critique"
+  - "Event-Driven System Reminders：八個 event detectors 在決策點注入 role:user 提醒，解決 attention decay"
+  - "Dual-Memory Architecture：episodic memory（LLM summary）+ working memory（最近 6 輪逐字內容）"
+  - "Tool Design for LLM Imprecision：9-pass fuzzy matching edit、tool result offloading、anchor-based retrieval"
+  - "MCP Lazy Discovery：baseline context 從 40% 降到 <5% 的 lazy tool schema 載入"
+  - "Agent-Computer Interface (ACI)：SWE-agent 的核心貢獻，LM 需要專門設計的介面而非人類 UI"
+  - "Doom-Loop Detection：基於 MD5 fingerprint sliding window 的相同 (tool, args) 重複偵測"
+  - "Bounded Resource Growth：每個隨 session 增長的資源（undo/nudge/iteration/parallel）都有硬上限"
+tags: [coding-agent, harness, scaffolding, context-engineering, cli-agent, agent-safety]
+agent_generated: true
+agent_run_id: "hermes-2026-05-27-001"
