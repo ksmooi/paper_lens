@@ -1,0 +1,25 @@
+title: "SaaS-Bench 論文導讀：Coding Agent 在企業 SaaS 工程中的能力邊界探索"
+topic: agentic
+paper_date: 2026-05
+article_date: 2026-05-27
+seed_paper:
+  title: "SaaSBench: Exploring the Boundaries of Coding Agents in Long-Horizon Enterprise SaaS Engineering"
+  arxiv_id: "2605.17526"
+  url: "https://arxiv.org/abs/2605.17526"
+dependency_papers:
+  - title: "WorkArena++: Towards Compositional Planning and Reasoning-based Common Knowledge Work Tasks"
+    arxiv_id: "2407.05291"
+    url: "https://arxiv.org/abs/2407.05291"
+    relation: "SaaS-Bench 最直接的前置工作，在 ServiceNow 單一平台上評估 web agent，SaaS-Bench 將其從單一平台拓展到 23 個跨領域 SaaS 系統"
+knowledge_points:
+  - "CUA（Computer-Using Agent）領域的發展脈絡與評估挑戰"
+  - "CUA Benchmark 的五維設計空間（環境真實性、跨應用範圍、任務視野、驗證可靠性、可擴展性）"
+  - "SaaS-Bench 的三項設計原則：真實可部署 SaaS 環境、組合式跨應用工作流程、長時距任務結構"
+  - "Builder-Challenger-Refiner 任務合成管線"
+  - "加權檢查點驗證體系（State-Check、Content-Check、LLM-Judge）"
+  - "從 WorkArena++ 到 SaaS-Bench 的演進脈絡與突破"
+  - "關鍵失敗模式分析：級聯式資源耗盡、瓶頸點錯誤、缺乏閉環驗證"
+  - "pass@k 分析與 CUA 評估方法論的啟示"
+tags: [benchmark, coding-agent, enterprise-saas, evaluation, cua]
+agent_generated: true
+agent_run_id: "hermes-2026-05-27-002"
