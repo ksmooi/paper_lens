@@ -1,0 +1,88 @@
+# Paper Lens - Article Metadata
+# 規範請見 ../../AGENT_GUIDE.md
+
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+# 文章標題
+title: "Self-RAG: 學習檢索、生成與自我批判"
+
+# Topic slug
+topic: rag
+
+# 論文發表年月(對應目錄名稱)
+paper_date: "2023-10"
+
+# 文章撰寫日期
+article_date: "2026-05-27"
+
+
+# ============================================================
+# 種子論文(必填，僅一篇)
+# ============================================================
+seed_paper:
+  title: "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection"
+  authors: ["Akari Asai", "Zeqiu Wu", "Yizhong Wang", "Avirup Sil", "Hannaneh Hajishirzi"]
+  arxiv_id: "2310.11511"
+  url: "https://arxiv.org/abs/2310.11511"
+  venue: "NeurIPS 2023"
+  published: "2023-10-17"
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+    authors: ["Patrick Lewis", "Ethan Perez", "Aleksandra Piktus", "et al."]
+    arxiv_id: "2005.11401"
+    url: "https://arxiv.org/abs/2005.11401"
+    relation: "RAG 的奠基論文，Self-RAG 的主要對比基準與改進對象"
+
+
+# ============================================================
+# 核心知識點(建議 3~6 點)
+# ============================================================
+knowledge_points:
+  - "RAG 的基本架構與內在限制：固定檢索、不檢查段落品質、不驗證生成支持度"
+  - "On-demand Retrieval：Let the model decide when to retrieve, via Retrieve token"
+  - "Reflection Tokens 四層設計：Retrieve、ISREL、ISSUP、ISUSE"
+  - "Critic Model：從 GPT-4 蒸餾到小型 Llama 2-7B 的兩階段策略"
+  - "Generator 兩階段訓練：Offline augmentation + Standard LM objective with loss masking"
+  - "Inference-time Controllable Decoding：Segment-level beam search + 加權 critique scores"
+  - "實驗結果全面超越 ChatGPT/Llama2-chat，消融驗證各元件必要性"
+
+
+# ============================================================
+# 標籤(輔助分類與搜尋)
+# ============================================================
+tags:
+  - retrieval-augmented-generation
+  - self-reflection
+  - factuality
+  - llm
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+
+# 是否由 agent 生成
+agent_generated: true
+
+# Agent 執行批次的識別碼
+agent_run_id: "hermes-2026-05-27-001"
+
+# Agent 在本次執行中的決策摘要
+agent_decisions:
+  - "選擇 RAG (Lewis et al. 2020) 作為唯一 dependency paper，因其為 Self-RAG 的主要對比基準"
+  - "使用 Mermaid 流程圖比較傳統 RAG 與 Self-RAG 的架構差異，而非 excalidraw 手繪圖"
+  - "文章語言為繁體中文，遵循 AGENT_GUIDE 規範"
+
+
+# ============================================================
+# 狀態(選填)
+# ============================================================
+status: published
+has_todos: false
