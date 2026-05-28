@@ -1,0 +1,25 @@
+title: "RAPTOR：以遞迴摘要與樹狀結構實現多層次檢索增強生成"
+topic: rag
+paper_date: 2024-01
+article_date: 2026-05-28
+seed_paper:
+  title: "RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval"
+  arxiv_id: "2401.18059"
+  url: "https://arxiv.org/abs/2401.18059"
+dependency_papers:
+  - title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+    arxiv_id: "2005.11401"
+    url: "https://arxiv.org/abs/2005.11401"
+    relation: "RAPTOR 的前身方法，標準 RAG 使用 flat chunk 檢索，RAPTOR 在其基礎上引入樹狀階層結構"
+knowledge_points:
+  - "Flat chunk retrieval 的結構性限制：標準 RAG 無法捕捉跨 chunk 的語意關係"
+  - "RAPTOR 樹狀建構流程：嵌入 → 聚類 → 摘要 → 遞迴，從底層建構多層次樹"
+  - "軟聚類演算法：GMM + UMAP + BIC，支援 soft clustering 與兩階段層次聚類"
+  - "兩種檢索策略：Tree Traversal（逐層選 top-k）vs. Collapsed Tree（攤平全部層級一次搜尋）"
+  - "LLM 摘要作為 context：每個非葉節點是 LLM 生成的摘要，幻覺率約 4% 且不傳播"
+  - "實驗驗證：QuALITY + GPT-4 達 82.6%（+20% 絕對準確率），QASPER 達 55.7% F1"
+  - "樹結構貢獻消融：非葉節點貢獻 18.5%–57% 被檢索節點，證明多層次設計的實質價值"
+  - "限制與批評：樹建構成本高、相依 OpenAI API、GMM 假設與文本分布不完全吻合"
+tags: [retrieval-augmented-generation, hierarchical-retrieval, tree-structure, question-answering, summarization]
+agent_generated: true
+agent_run_id: "hermes-2026-05-28-001"
