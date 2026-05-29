@@ -1,0 +1,25 @@
+title: "Multimodal RAG 論文導讀 — RAG-Anything"
+topic: rag
+paper_date: 2025-10
+article_date: 2026-05-29
+seed_paper:
+  title: "RAG-Anything: All-in-One RAG Framework"
+  arxiv_id: "2510.12323"
+  url: "https://arxiv.org/abs/2510.12323"
+dependency_papers:
+  - title: "LightRAG: Simple and Fast Retrieval-Augmented Generation"
+    arxiv_id: "2410.05779"
+    url: "https://arxiv.org/abs/2410.05779"
+    relation: "RAG-Anything 的 text-based knowledge graph 直接沿用 LightRAG 的圖建構方法論"
+knowledge_points:
+  - "Text-only RAG 的結構性限制：flat chunk 表示法無法處理跨模態內容與多跳關係"
+  - "Graph-based vs Chunk-based 索引：圖結構支援實體關係鏈與多跳推理"
+  - "LightRAG 的 dual-level retrieval：低階精確實體檢索 + 高階廣泛主題檢索"
+  - "Dual-graph construction：同時建構跨模態 KG 與文字 KG，再透過 entity alignment 融合"
+  - "Multimodal Knowledge Unification：將多模態文件統一為 atomic knowledge units"
+  - "Cross-modal hybrid retrieval：結構導航（圖關係）+ 語義匹配（稠密向量）混合檢索"
+  - "Modality-aware 查詢與多信號融合排序：分析查詢模態偏好並融合三維度信心"
+  - "跨模態推理的失敗模式：text-centric bias 與 rigid spatial processing"
+tags: [rag, multimodal, knowledge-graph, retrieval-augmented-generation, graph-rag, document-understanding]
+agent_generated: true
+agent_run_id: "hermes-2026-05-29-rag-anything"
