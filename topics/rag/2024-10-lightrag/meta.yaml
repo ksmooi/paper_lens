@@ -1,0 +1,81 @@
+# Paper Lens - Article Metadata
+
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+# 文章標題
+title: "LightRAG (Graph-enhanced RAG) 論文導讀"
+
+# Topic slug（從 AGENT_GUIDE.md 對照表）
+topic: rag
+
+# 論文發表年月（對應目錄名稱），以 arxiv v1 發表時間為準
+paper_date: "2024-10"
+
+# 文章撰寫日期
+article_date: "2026-05-29"
+
+
+# ============================================================
+# 種子論文
+# ============================================================
+seed_paper:
+  title: "LightRAG: Simple and Fast Retrieval-Augmented Generation"
+  authors: ["Zirui Guo", "Lianghao Xia", "Yanhua Yu", "et al."]
+  arxiv_id: "2410.05779"
+  url: "https://arxiv.org/abs/2410.05779"
+  published: "2024-10-08"
+
+
+# ============================================================
+# Dependency Papers
+# ============================================================
+dependency_papers:
+  - title: "From Local to Global: A Graph RAG Approach to Query-Focused Summarization"
+    authors: ["Darren Edge", "Ha Trinh", "Newman Cheng", "et al."]
+    arxiv_id: "2404.16130"
+    url: "https://arxiv.org/abs/2404.16130"
+    relation: "GraphRAG 是圖增強 RAG 路線的開創者，LightRAG 與其共享基本假設但改用不同的效率策略"
+
+
+# ============================================================
+# 核心知識點
+# ============================================================
+knowledge_points:
+  - "從平面檢索到圖增強 RAG 的動機：flat chunking 不足以捕捉跨文件實體關係"
+  - "圖索引建構 pipeline：LLM 驅動的三階段流程（提取→Profiling→去重）"
+  - "雙層檢索機制：low-level 與 high-level 關鍵詞分別匹配實體 key 與關係 key"
+  - "增量更新機制：graph union 方式合併新文件，無需重建索引"
+  - "GraphRAG 與 LightRAG 全面比較：community traversal vs K-V vector search"
+  - "實驗分析：4 資料集全面超越 baselines，消融證實 dual-level retrieval 的必要性"
+
+
+# ============================================================
+# 標籤
+# ============================================================
+tags:
+  - rag
+  - graph-rag
+  - knowledge-graph
+  - retrieval-augmented-generation
+  - graph-enhanced-retrieval
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+agent_generated: true
+agent_run_id: "hermes-2026-05-29-003"
+agent_decisions:
+  - "選用既有的 rag 類別而非建立新類別，因為 LightRAG 核心貢獻為 RAG 中的圖譜增強"
+  - "選擇 GraphRAG (2404.16130) 為單一 dependency paper，因其為圖增強 RAG 路線最直接的 predecessor"
+  - "使用 Mermaid code blocks 作為視覺資產，所有圖直接內嵌於 Markdown"
+  - "pdftotext 替代 pypdf 做全文掃描（無 pip install pypdf 需求），nano-pdf 未使用（因其為編輯工具非閱讀工具）"
+
+
+# ============================================================
+# 狀態
+# ============================================================
+status: published
+has_todos: false
