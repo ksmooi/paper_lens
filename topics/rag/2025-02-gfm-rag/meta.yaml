@@ -1,0 +1,92 @@
+# Paper Lens - Article Metadata
+# 規範請見 ../../AGENT_GUIDE.md。
+
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+# 文章標題
+title: "GFM-RAG (Graph Foundation Model for RAG) 論文導讀"
+
+# Topic slug,必須是 AGENT_GUIDE.md 中列舉的其中一個
+topic: rag
+
+# 論文發表年月(對應目錄名稱),格式 YYYY-MM
+# 以 arxiv v1 發表時間為準
+paper_date: "2025-02"
+
+# 文章撰寫日期,格式 YYYY-MM-DD
+article_date: "2026-05-31"
+
+
+# ============================================================
+# 種子論文(必填,僅一篇)
+# ============================================================
+seed_paper:
+  title: "GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation"
+  authors: ["Linhao Luo", "Zicheng Zhao", "et al."]
+  arxiv_id: "2502.01113"
+  url: "https://arxiv.org/abs/2502.01113"
+  venue: "NeurIPS 2025"
+  published: "2025-02-03"
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models"
+    authors: ["Bernal Jiménez Gutiérrez", "Yiheng Shu", "et al."]
+    arxiv_id: "2405.14831"
+    url: "https://arxiv.org/abs/2405.14831"
+    relation: "GFM-RAG 的前置方法,使用 Personalized PageRank 在 KG-index 上做多跳檢索,GFM-RAG 用 learned GNN 取代 PPR"
+
+
+# ============================================================
+# 核心知識點(建議 3~6 點)
+# ============================================================
+knowledge_points:
+  - "傳統 RAG 的獨立編碼侷限與多跳推理困境"
+  - "GraphRAG 範式與 KG-index 建構(LLM OpenIE + entity resolution)"
+  - "HippoRAG 的 Personalized PageRank 檢索機制與其限制"
+  - "Query-dependent GNN 的設計: unified semantic space + message passing"
+  - "兩階段訓練策略:自監督 KG 補全預訓練 + 監督文件檢索微調"
+  - "GFM-RAG 的泛化能力與 Neural Scaling Law 驗證"
+
+
+# ============================================================
+# 標籤(輔助分類與搜尋)
+# ============================================================
+tags:
+  - rag
+  - graphrag
+  - graph-neural-network
+  - multi-hop-qa
+  - knowledge-graph
+  - foundation-model
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+
+# 是否由 agent 生成(true / false)
+agent_generated: true
+
+# Agent 執行批次的識別碼
+# 格式建議: {agent-name}-{YYYY-MM-DD}-{seq}
+agent_run_id: "hermes-2026-05-31-001"
+
+# Agent 在本次執行中的決策摘要
+agent_decisions:
+  - "選擇 HippoRAG (2405.14831) 而非 LightRAG (2410.05779) 或 GraphRAG/MS (2404.16130) 作為 dependency,因為 HippoRAG 與 GFM-RAG 共享 KG-index 架構且是直接比較基準"
+  - "TOPIC_SLUG 採用論文通用簡稱 'gfm-rag',符合 AGENT_GUIDE paper-slug 規範"
+  - "CATEGORY 選用既有 'rag' 類別,因核心貢獻是 RAG 檢索階段的改進"
+
+
+# ============================================================
+# 狀態(選填)
+# ============================================================
+
+status: published
+has_todos: false
