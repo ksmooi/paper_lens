@@ -1,0 +1,88 @@
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+title: "C-NORM: Contextual Normalization for RAG 解讀"
+
+# Topic slug,必須是 AGENT_GUIDE.md 中列舉的其中一個
+topic: rag
+
+# 論文發表年月(對應目錄名稱),格式 YYYY-MM
+# 以 arxiv v1 發表時間為準
+paper_date: "2025-10"
+
+# 文章撰寫日期,格式 YYYY-MM-DD
+article_date: "2026-06-01"
+
+
+# ============================================================
+# 種子論文(必填,僅一篇)
+# ============================================================
+seed_paper:
+  title: "Grounding Long-Context Reasoning with Contextual Normalization for Retrieval-Augmented Generation"
+  authors: ["Jiamin Chen", "Yuchen Li", "Xinyu Ma", "et al."]
+  arxiv_id: "2510.13191"
+  url: "https://arxiv.org/abs/2510.13191"
+  venue: ""
+  published: "2025-10-15"
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "Lost in the Middle: How Language Models Use Long Contexts"
+    authors: ["Nelson F. Liu", "Kevin Lin", "John Hewitt", "et al."]
+    arxiv_id: "2307.03172"
+    url: "https://arxiv.org/abs/2307.03172"
+    relation: "C-NORM 的動機基礎——揭示了 lost-in-the-middle 現象與 key-value extraction 任務框架"
+
+
+# ============================================================
+# 核心知識點(建議 3~6 點)
+# ============================================================
+knowledge_points:
+  - "Lost-in-the-Middle 現象:LLM 在長上下文中呈現 U 形表現曲線"
+  - "Context Format Sensitivity:表面格式差異可大幅影響 LLM 表現"
+  - "Tokenization 與 Attention Balance 雙機制:解釋格式敏感性的根源"
+  - "C-NORM 架構:候選格式生成、注意力引導評分、自動格式選擇"
+  - "模型特定的格式偏好與 ABS 的自動選擇能力"
+
+
+# ============================================================
+# 標籤(輔助分類與搜尋)
+# ============================================================
+tags:
+  - long-context
+  - rag
+  - retrieval-augmented-generation
+  - positional-bias
+  - format-normalization
+  - attention
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+agent_generated: true
+agent_run_id: "hermes-2026-06-01-001"
+
+agent_decisions:
+  - "選擇 Lost in the Middle 作為唯一 dependency paper,因 C-NORM 的實驗設計（key-value extraction task、attention 分析）皆直接奠基於此"
+  - "文章 slug 使用 contextual-norm（方法名稱縮寫）,非論文全稱"
+
+
+# ============================================================
+# 修訂紀錄(選填)
+# ============================================================
+revisions:
+  - version: 1
+    date: "2026-06-01"
+    note: "初版"
+
+
+# ============================================================
+# 狀態(選填)
+# ============================================================
+status: published
+has_todos: false
