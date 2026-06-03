@@ -1,0 +1,46 @@
+title: "GraphRAG: 用圖索引與社群摘要實現全局理解"
+topic: rag
+paper_date: "2024-04"
+article_date: "2026-05-29"
+
+seed_paper:
+  title: "From Local to Global: A Graph RAG Approach to Query-Focused Summarization"
+  authors: ["Darren Edge", "Ha Trinh", "Newman Cheng", "et al."]
+  arxiv_id: "2404.16130"
+  url: "https://arxiv.org/abs/2404.16130"
+  venue: "Microsoft Research Technical Report"
+  published: "2024-04-24"
+
+dependency_papers:
+  - title: "RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval"
+    authors: ["Parth Sarthi", "Salman Abdullah", "Aditi Tuli", "et al."]
+    arxiv_id: "2401.18059"
+    url: "https://arxiv.org/abs/2401.18059"
+    relation: "GraphRAG 的前置結構化索引方法 — 以樹狀遞迴摘要代替扁平 chunk 檢索"
+
+knowledge_points:
+  - "Flat RAG 的根本缺陷：為何需要結構化索引來處理全局綜觀問題"
+  - "RAPTOR 的樹狀遞迴摘要：語意聚類與層次化樹索引"
+  - "GraphRAG 的圖索引與社群偵測：知識圖譜 + Leiden 演算法"
+  - "Map-Reduce 全局答案生成：社群摘要 → 中間答案 → 全局答案"
+  - "樹 vs 圖的關鍵對比：兩種結構化 RAG 策略的取捨"
+  - "結構化 RAG 的評估方法：LLM-as-a-judge 與 claim-based 驗證"
+
+tags:
+  - rag
+  - graphrag
+  - knowledge-graph
+  - community-detection
+  - global-sensemaking
+  - query-focused-summarization
+
+agent_generated: true
+agent_run_id: "hermes-2026-05-29-001"
+
+agent_decisions:
+  - "選擇 RAPTOR (2401.18059) 作為唯一 dependency paper，因其與 GraphRAG 共享『結構化索引取代 flat RAG』的核心命題，形成最清晰的技術對照"
+  - "CATEGORY 選用既有 'rag' 類別而非新建 'graphrag' 類別，因 GraphRAG 本質上是 RAG 方法的改進"
+  - "文章條列式對比 RAPTOR 與 GraphRAG 的系統性差異，而非逐一論述每篇論文"
+
+status: published
+has_todos: false
