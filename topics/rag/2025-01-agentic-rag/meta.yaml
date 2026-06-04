@@ -1,0 +1,74 @@
+# Paper Lens - Article Metadata
+
+# ============================================================
+# 基本資訊(必填)
+# ============================================================
+
+title: "Agentic RAG: 從靜態檢索生成到自主智能的進化"
+topic: rag
+paper_date: "2025-01"
+article_date: "2026-05-29"
+
+
+# ============================================================
+# 種子論文(必填，僅一篇)
+# ============================================================
+seed_paper:
+  title: "Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG"
+  authors: ["Aditi Singh", "Abul Ehtesham", "Saket Kumar", "et al."]
+  arxiv_id: "2501.09136"
+  url: "https://arxiv.org/abs/2501.09136"
+  venue: ""
+  published: "2025-01-15"
+
+
+# ============================================================
+# Dependency Papers(至多 3 篇)
+# ============================================================
+dependency_papers:
+  - title: "Corrective Retrieval Augmented Generation"
+    authors: ["Shi-Qi Yan", "Jia-Chen Gu", "Yun Zhu", "Zhen-Hua Ling"]
+    arxiv_id: "2401.15884"
+    url: "https://arxiv.org/abs/2401.15884"
+    relation: "Agentic RAG 的前驅方法，引入檢索評估器與三種糾正動作，是靜態 RAG 到 Agentic RAG 的關鍵橋樑"
+
+
+# ============================================================
+# 核心知識點(建議 3~6 點)
+# ============================================================
+knowledge_points:
+  - "RAG 的進化路徑：從 Naive RAG 到 Agentic RAG 的五個階段"
+  - "檢索品質的核心矛盾：檢索失敗時系統如何應對，CRAG 的解決方案"
+  - "Agentic 設計模式：Reflection、Planning、Tool Use、Multi-Agent Collaboration"
+  - "Agentic RAG 架構分類法：基於四維度（agent 數量、控制結構、自主性、知識表示）的統一 taxonomy"
+  - "從 CRAG 到 Agentic RAG 的連續性：CRAG 作為 agentic 雛形的定位與限制"
+  - "開放挑戰：評估標準化、協調複雜度、記憶管理、計算效率、治理與安全性"
+
+
+# ============================================================
+# 標籤(輔助分類與搜尋)
+# ============================================================
+tags:
+  - agentic-rag
+  - retrieval-augmented-generation
+  - crag
+  - agentic-patterns
+  - survey
+
+
+# ============================================================
+# Agent 相關資訊
+# ============================================================
+agent_generated: true
+agent_run_id: "hermes-2026-05-29-001"
+agent_decisions:
+  - "選擇 CRAG (2401.15884) 而非 Self-RAG (2310.11511) 作為 dependency，因種子論文 survey 明確引用 CRAG (reference [33]) 且 CRAG 代表從靜態到 agentic 的關鍵轉變"
+  - "分類為 RAG 類別而非 Agentic 類別，因論文核心貢獻是將 agentic patterns 注入 RAG pipeline，而非純 agent 架構研究"
+  - "視覺資產均使用內嵌 Mermaid，未使用 excalidraw/baoyu-infographic，因為論文本質是架構與流程導向，Mermaid 足以清楚表達"
+
+
+# ============================================================
+# 狀態(選填)
+# ============================================================
+status: published
+has_todos: false
