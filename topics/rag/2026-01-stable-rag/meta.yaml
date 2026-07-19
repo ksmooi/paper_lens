@@ -1,0 +1,53 @@
+# Paper Lens - Article Metadata
+
+# 基本資訊(必填)
+title: "Stable-RAG: RAG 檢索排列敏感度研究導讀"
+topic: rag
+paper_date: "2026-01"
+article_date: "2026-06-02"
+
+# 種子論文
+seed_paper:
+  title: "Stable-RAG: Mitigating Retrieval-Permutation-Induced Hallucinations in Retrieval-Augmented Generation"
+  authors: ["Qianchi Zhang", "Hainan Zhang", "Liang Pang", "Hongwei Zheng", "Zhiming Zheng"]
+  arxiv_id: "2601.02993"
+  url: "https://arxiv.org/abs/2601.02993"
+  published: "2026-01-06"
+
+# Dependency Papers
+dependency_papers:
+  - title: "Making Retrieval-Augmented Language Models Robust to Irrelevant Context"
+    authors: ["Ori Yoran", "Tomer Wolfson", "Ori Ram", "Jonathan Berant"]
+    arxiv_id: "2310.01558"
+    url: "https://arxiv.org/abs/2310.01558"
+    relation: "內容干擾路線的代表方法，與 Stable-RAG 的順序穩定性方法形成互補"
+
+# 核心知識點
+knowledge_points:
+  - "排列敏感度的存在與量化——PSR 指標與 Top-5 實驗設計"
+  - "Hidden State 聚類作為診斷工具——Spectral clustering 的數學原理"
+  - "Deep Layer Reasoning Divergence——排列敏感度隨 depth 加劇"
+  - "偏好數據四類分類——FC/PC/FU/FA 的設計邏輯"
+  - "DPO 對齊與跨排列一致性——order-stability constraint 的作用"
+  - "RetRobust vs Stable-RAG——內容干擾 vs 順序干擾的互補關係"
+
+# 標籤
+tags:
+  - rag
+  - retrieval-augmented-generation
+  - permutation-sensitivity
+  - hallucination-mitigation
+  - dpo
+  - spectral-clustering
+
+# Agent 相關資訊
+agent_generated: true
+agent_run_id: "hermes-2026-06-02-001"
+
+agent_decisions:
+  - "選擇 RetRobust (2310.01558) 而非 ATM 作為 dependency paper，因 RetRobust 是 Stable-RAG 實驗中的主要 baseline，且具有清晰的 arxiv ID 與 ICLR 會議認證。ATM 雖然考量了排列擾動但無公開 arxiv ID"
+  - "未納入 Set-LLM (2505.15433) 作為 dependency，因為其 permutation-invariant architecture 方法論與 Stable-RAG 的訓練層面方案差異過大，且不被 Stable-RAG 列入 baseline 比較"
+
+# 狀態
+status: published
+has_todos: false
