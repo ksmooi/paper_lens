@@ -1,0 +1,23 @@
+title: "A-RAG (Agentic RAG) 導讀：從固定 Workflow 到自主檢索的範式轉移"
+topic: rag
+paper_date: 2026-02
+article_date: 2026-06-02
+seed_paper:
+  title: "A-RAG: Scaling Agentic Retrieval-Augmented Generation via Hierarchical Retrieval Interfaces"
+  arxiv_id: "2602.03442"
+  url: "https://arxiv.org/abs/2602.03442"
+dependency_papers:
+  - title: "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection"
+    arxiv_id: "2310.11511"
+    url: "https://arxiv.org/abs/2310.11511"
+    relation: "Workflow RAG 的代表方法，A-RAG 直接挑戰其固定 workflow 範式"
+knowledge_points:
+  - "RAG 範式的四階段演進：Basic → Graph → Workflow → Agentic"
+  - "Self-RAG 的 Reflection Token 機制與訓練流程"
+  - "A-RAG 的階層式檢索介面（keyword_search / semantic_search / chunk_read）"
+  - "Progressive Information Acquisition（漸進式資訊獲取）與 Context Tracker"
+  - "Test-Time Scaling 行為分析"
+  - "固定 Workflow vs 自主 Agentic：兩篇論文的核心差異"
+tags: [rag, agentic-rag, hierarchical-retrieval, self-rag, test-time-scaling]
+agent_generated: true
+agent_run_id: "hermes-2026-06-02-a-rag"
